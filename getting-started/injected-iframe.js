@@ -19,7 +19,7 @@ module.exports = "<!DOCTYPE HTML>" + renderToStaticMarkup(
                 height = "100%" />
             <InlineScript
                 from = { script }
-                constants = { { EmptyBase64: toBase64("<!DOCTYPE HTML>") } } />
+                constants = { { } } />
         </body>
     </html>);
 
@@ -27,7 +27,7 @@ function script()
 {
     const iframe = document.getElementById("iframe");
     const { origin, pathname } = window.location;
-    const loop = { text: {}, needsFetching: true, fetching: false };
+    const loop = { text: {}, needsFetching: false, fetching: false };
 
     iframe.addEventListener("load", function loaded()
     {
@@ -40,8 +40,8 @@ function script()
 
             loop.needsFetching = false;
             loop.fetching = true;
-console.log("I AM FETCHING " + origin);
-            fetch(origin)
+console.log("GONNA TRY TO FETCH " + loop.URL);
+            fetch(loop.URL)
                 .then(response => response.text())
                 .then(function (text)
                 {
@@ -61,16 +61,19 @@ console.log("I AM FETCHING " + origin);
                     loop.text = text;
                 })
                 .catch(() => loop.fetching = false);
-        }, 100);
+        }, 200);
     });
-    iframe.src = `${origin}${pathname}?base64=${encodeURIComponent("EmptyBase64")}`;
+    iframe.src = `${origin}/jefkasjdfkjasdklfjsldkf/iframe-empty`;
     
     window.addEventListener("message", function ({ source, data })
     {
         if (source !== window.parent)
             return;
 
+        loop.URL = origin + data.path;
         loop.needsFetching = true;
+        
+        console.log("GOT MESSAGE " + loop.URL);
     });
 }
 

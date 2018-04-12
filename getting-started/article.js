@@ -6,9 +6,10 @@ const BrowserWindow = require("../../components/photon/browser-window");
 const RunKit = require("@petrified/runkit");
 
 const { readFileSync } = require("fs");
+const injectedIFrame = JSON.stringify(encodeURIComponent(require("./injected-iframe")));
 const IFrameInjectionPreamble = readFileSync(
-    require.resolve("./iframe-injection-preamble"), "utf-8");
-
+    require.resolve("./iframe-injection-preamble"), "utf-8")
+    .replace(/InjectedIFrame/g, injectedIFrame);
 
 module.exports = function Article({ children })
 {
@@ -119,8 +120,9 @@ module.exports = function Article({ children })
             ({ literal, fence: fence(codeinfo) }));
     const tabs = examples.map(({ fence: { title } }, index) =>
         ({ title, active: index === 0 }));
+    const path = examples[0].fence.path || "";
 
-    return  <article css = { styles }>
+    return  <article css = { styles } data-path = { path } >
                 <main>
                     { prose }
                 </main>
@@ -146,7 +148,7 @@ module.exports = function Article({ children })
                         </Window>
                     </div>
                     <div className = "window-container">
-                        <BrowserWindow displayURL = "http://localhost:8000" />
+                        <BrowserWindow displayURL = { `http://localhost:3000${path}` } />
                     </div>
                 </figure>
             </article>;

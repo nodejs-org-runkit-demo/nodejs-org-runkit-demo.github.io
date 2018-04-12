@@ -10,19 +10,22 @@ free to experiment and require other packages -- all 700,000
 are already preinstalled in this tutorial.
 
 
-```js runkit title=gif-search.js
-const findGif = require("gif-search").query;
+```js runkit title=image-search.js path=%3Fkeywords%3Dgreat%2Bscott
+const cheerio = require("cheerio");
+const imageRender = require("image-render");
+const got = require("got");
 const app = require("express")();
 
-app.get("/", async (req, res) => {
-    const keywords = req.query.keywords;
-    const img = `<img src = "${await findGif(keywords)}"/>`;
-    const styles = `<style>
-        img { display: block; margin: 0 auto }
-    </style>`;
+app.get("/", async (req, res) =>
+{
+    const keywords = encodeURIComponent(req.query.keywords);
+    const URL = `http://images.google.com/search?tbm=isch&q=${keywords}`;
+    const HTML = (await got(URL)).body;
+    const $ = cheerio.load(HTML);
+    const src = $("#ires td a img").attr("src");
 
-    res.send(img + styles);
-})
+    res.send(imageRender(src));
+});
 
-app.listen(3000)
+app.listen(3000);
 ```
