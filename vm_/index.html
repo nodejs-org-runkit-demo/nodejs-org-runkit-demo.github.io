@@ -1,0 +1,713 @@
+<html><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/><title>undefined | Node.js</title><link rel="stylesheet" href="https://themes.runkitcdn.com/runkit-light.css"/><link href="/assets/css/bootstrap-reboot.min.css" rel="stylesheet"/><link href="/assets/fontawesome/css/fontawesome-all.min.css" rel="stylesheet"/><link rel="canonical"/><style>.css-1j604c7 code.inline{color:rgba(164,115,221,1.0);background:rgba(246,247,252,1.0);font-family:Menlo,Monaco,Consolas,"Courier New",monospace;border-radius:5pt;font-size:0.77em;padding:0.33em .55em;}.css-1j604c7 h2 > code.inline{color:inherit;background:inherit;font-family:inherit;border-radius:0;font-size:inherit;padding:0;}.css-1j604c7 p{font-size:16px;line-height:27.2px;margin-bottom:1.2em;padding:10px 0px 1px 0px;}.css-1j604c7 h1{margin-top:2em;font-weight:bolder;font-size:1.2em;}.css-1j604c7 h2{margin-top:1em;font-size:1.2em;font-weight:bolder;margin:30px 0 15px 0;}.css-1uvztjx{font-size:16px;padding:0;margin:0;}.css-1upbv8z{width:235px;position:fixed;height:100vh;overflow:scroll;}.css-rglxlg{margin-left:235px;width:calc(100vw - 235px);}.css-k008qs{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;}.css-17bai9i{-webkit-flex:1 0 0;-ms-flex:1 0 0;flex:1 0 0;max-width:50%;}.css-1deafrq{padding:0px 50px 50px 50px;display:block;position:-webkit-sticky;position:sticky;top:40px;}.css-lmvmh4{-webkit-flex:1 0 0;-ms-flex:1 0 0;flex:1 0 0;max-width:50%;border-left:1px solid rgb(221,221,221);background:#f5f5f5;}.css-rpwxhi{padding:40px 50px 50px 50px;display:block;position:-webkit-sticky;position:sticky;top:40px;}.css-16v83fq{background:rgba(6,16,65,1.0);min-height:100%;color:rgba(255,255,255,0.7);}.css-16v83fq ul{background:rgba(6,16,65,1.0);list-style-type:none;padding:0;margin:0;}.css-16v83fq li{margin:0;padding:.5em 0 .5em 2em;}.css-vttkis{position:absolute;top:0px;right:50px;border:1px solid rgba(49,178,118,1.0);background:rgba(49,178,118,0.2);color:rgba(49,178,118,1.0);border-radius:4pt;padding:0.33em .55em;text-transform:uppercase;font-size:80%;font-weight:bold;}.css-1jscp06{counter-reset:li;border-width:1px;border-style:solid;}.css-1jscp06 > div{position:relative;margin:0;}.css-1jscp06 > div > .CodeMirror-gutter-wrapper{position:absolute;left:-36px;}.css-1jscp06 > div.empty:after{content:"\00a0";}.css-1jscp06 span.CodeMirror-linenumber:before{content:counter(li) " ";counter-increment:li;position:absolute;top:0;box-sizing:border-box;width:36px;text-align:right;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;}.css-1wd31y9{position:absolute;top:0px;right:50px;border:1px solid rgba(221,79,68,1.0);background:rgba(221,79,68,0.2);color:rgba(221,79,68,1.0);border-radius:4pt;padding:0.33em .55em;text-transform:uppercase;font-size:80%;font-weight:bold;}</style></head><body><body class="css-1uvztjx"><script src="https://embed.runkit-demo.com"></script><div class="css-1upbv8z"><nav class="css-16v83fq"><ul><li><div style="width:1px;height:20px"></div></li><li>Assertion Testing</li><li>Async Hooks</li><li>Buffer</li><li>C++ Addons</li><li>C/C++ Addons - N-API</li><li>Child Processes</li><li>Cluster</li><li>Command Line Options</li><li>Console</li><li>Crypto</li><li>Debugger</li><li>Deprecated APIs</li><li>DNS</li><li>Domain</li><li>ECMAScript Modules</li><li>Errors</li><li>Events</li><li>File System</li><li>Globals</li><li>HTTP</li><li>HTTP/2</li><li>HTTPS</li><li>Inspector</li><li>Internationalization</li><li>Modules</li><li>Net</li><li>OS</li><li>Path</li><li>Performance Hooks</li><li>Process</li><li>Punycode</li><li>Query Strings</li><li>Readline</li><li>REPL</li><li>Stream</li><li>String Decoder</li><li>Timers</li><li>TLS/SSL</li><li>Tracing</li><li>TTY</li><li>UDP/Datagram</li><li>URL</li><li>Utilities</li><li>V8</li><li>VM</li><li>ZLIB</li></ul></nav></div><main class="css-rglxlg"><div class="css-1j604c7 margins fluid-content"><section class="css-k008qs"><div class="css-17bai9i"><div class="css-1deafrq"><h1>VM (Executing JavaScript)</h1><span class="css-vttkis">Stable</span><p>The <code class="inline">vm</code> module provides APIs for compiling and running code within V8 Virtual
+Machine contexts.</p><p>JavaScript code can be compiled and run immediately or
+compiled, saved, and run later.</p><p>A common use case is to run the code in a sandboxed environment.
+The sandboxed code uses a different V8 Context, meaning that
+it has a different global object than the rest of the code.</p><p>One can provide the context by <a href="#vm_what_does_it_mean_to_contextify_an_object">&quot;contextifying&quot;</a> a sandbox
+object. The sandboxed code treats any property on the sandbox like a
+global variable. Any changes on global variables caused by the sandboxed
+code are reflected in the sandbox object.</p><p><strong>The vm module is not a security mechanism. Do not use it to run untrusted
+code</strong>.</p></div></div><div class="css-lmvmh4"><div class="css-rpwxhi"><code><div><div class="cm-s-runkit-light"><div class="CodeMirror CodeMirror-lines theme-border-color theme-border-radius css-1jscp06"><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div><span class="cm-keyword">const</span><span style="white-space:pre"> </span><span class="cm-def">vm</span><span style="white-space:pre"> </span><span class="cm-operator">=</span><span style="white-space:pre"> </span><span class="cm-variable">require</span><span style="white-space:pre">(</span><span class="cm-string">&#x27;vm&#x27;</span><span style="white-space:pre">)</span><span style="white-space:pre">;</span></div><div class="empty"><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+</div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span class="cm-keyword">const</span><span style="white-space:pre"> </span><span class="cm-def">x</span><span style="white-space:pre"> </span><span class="cm-operator">=</span><span style="white-space:pre"> </span><span class="cm-number">1</span><span style="white-space:pre">;</span></div><div class="empty"><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+</div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span class="cm-keyword">const</span><span style="white-space:pre"> </span><span class="cm-def">sandbox</span><span style="white-space:pre"> </span><span class="cm-operator">=</span><span style="white-space:pre"> </span><span style="white-space:pre">{</span><span style="white-space:pre"> </span><span class="cm-property">x</span><span style="white-space:pre">:</span><span style="white-space:pre"> </span><span class="cm-number">2</span><span style="white-space:pre"> </span><span style="white-space:pre">}</span><span style="white-space:pre">;</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span class="cm-variable">vm</span><span style="white-space:pre">.</span><span class="cm-property">createContext</span><span style="white-space:pre">(</span><span class="cm-variable">sandbox</span><span style="white-space:pre">)</span><span style="white-space:pre">;</span><span style="white-space:pre"> </span><span class="cm-comment">// Contextify the sandbox.</span></div><div class="empty"><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+</div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span class="cm-keyword">const</span><span style="white-space:pre"> </span><span class="cm-def">code</span><span style="white-space:pre"> </span><span class="cm-operator">=</span><span style="white-space:pre"> </span><span class="cm-string">&#x27;x += 40; var y = 17;&#x27;</span><span style="white-space:pre">;</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span class="cm-comment">// x and y are global variables in the sandboxed environment.</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span class="cm-comment">// Initially, x has the value 2 because that is the value of sandbox.x.</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span class="cm-variable">vm</span><span style="white-space:pre">.</span><span class="cm-property">runInContext</span><span style="white-space:pre">(</span><span class="cm-variable">code</span><span style="white-space:pre">,</span><span style="white-space:pre"> </span><span class="cm-variable">sandbox</span><span style="white-space:pre">)</span><span style="white-space:pre">;</span></div><div class="empty"><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+</div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span class="cm-variable">console</span><span style="white-space:pre">.</span><span class="cm-property">log</span><span style="white-space:pre">(</span><span class="cm-variable">sandbox</span><span style="white-space:pre">.</span><span class="cm-property">x</span><span style="white-space:pre">)</span><span style="white-space:pre">;</span><span style="white-space:pre"> </span><span class="cm-comment">// 42</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span class="cm-variable">console</span><span style="white-space:pre">.</span><span class="cm-property">log</span><span style="white-space:pre">(</span><span class="cm-variable">sandbox</span><span style="white-space:pre">.</span><span class="cm-property">y</span><span style="white-space:pre">)</span><span style="white-space:pre">;</span><span style="white-space:pre"> </span><span class="cm-comment">// 17</span></div><div class="empty"><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+</div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span class="cm-variable">console</span><span style="white-space:pre">.</span><span class="cm-property">log</span><span style="white-space:pre">(</span><span class="cm-variable">x</span><span style="white-space:pre">)</span><span style="white-space:pre">;</span><span style="white-space:pre"> </span><span class="cm-comment">// 1; y is not defined.</span></div></div></div><script>
+        var tag = document.currentScript || (function (scripts)
+        {
+            return scripts[scripts.length - 1];
+        })(document.getElementsByTagName("script"));
+        var target = tag.previousSibling;
+        var configuration = {"getShareableURL":false,"evaluateOnLoad":false};
+
+        ["getShareableURL", "onLoad", "evaluateOnLoad"].map(function (method)
+        {
+            if (configuration[method])
+                configuration[method] = function ()
+                {
+                    window[method].apply(null, arguments);
+                }
+        });
+
+        configuration.element = target;
+        configuration.source = RunKit.sourceFromElement(target);
+        configuration.clearParentContents = true;
+        var notebook = RunKit.createNotebook(configuration);
+        </script></div></code></div></div></section><section class="css-k008qs"><div class="css-17bai9i"><div class="css-1deafrq"><h2>Class: vm.Module</h2><span class="css-1wd31y9">Experimental</span><p><em>This feature is only available with the <code class="inline">--experimental-vm-modules</code> command
+flag enabled.</em></p><p>The <code class="inline">vm.Module</code> class provides a low-level interface for using ECMAScript
+modules in VM contexts. It is the counterpart of the <code class="inline">vm.Script</code> class that
+closely mirrors <a href="https://tc39.github.io/ecma262/#sec-source-text-module-records">Source Text Module Record</a>s as defined in the ECMAScript
+specification.</p><p>Unlike <code class="inline">vm.Script</code> however, every <code class="inline">vm.Module</code> object is bound to a context from
+its creation. Operations on <code class="inline">vm.Module</code> objects are intrinsically asynchronous,
+in contrast with the synchronous nature of <code class="inline">vm.Script</code> objects. With the help
+of async functions, however, manipulating <code class="inline">vm.Module</code> objects is fairly
+straightforward.</p><p>Using a <code class="inline">vm.Module</code> object requires four distinct steps: creation/parsing,
+linking, instantiation, and evaluation. These four steps are illustrated in the
+following example.</p><p>This implementation lies at a lower level than the <a href="esm.html#esm_ecmascript_modules">ECMAScript Module
+loader</a>. There is also currently no way to interact with the Loader, though
+support is planned.</p></div></div><div class="css-lmvmh4"><div class="css-rpwxhi"><code><div><div class="cm-s-runkit-light"><div class="CodeMirror CodeMirror-lines theme-border-color theme-border-radius css-1jscp06"><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div><span class="cm-keyword">const</span><span style="white-space:pre"> </span><span class="cm-def">vm</span><span style="white-space:pre"> </span><span class="cm-operator">=</span><span style="white-space:pre"> </span><span class="cm-variable">require</span><span style="white-space:pre">(</span><span class="cm-string">&#x27;vm&#x27;</span><span style="white-space:pre">)</span><span style="white-space:pre">;</span></div><div class="empty"><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+</div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span class="cm-keyword">const</span><span style="white-space:pre"> </span><span class="cm-def">contextifiedSandbox</span><span style="white-space:pre"> </span><span class="cm-operator">=</span><span style="white-space:pre"> </span><span class="cm-variable">vm</span><span style="white-space:pre">.</span><span class="cm-property">createContext</span><span style="white-space:pre">(</span><span style="white-space:pre">{</span><span style="white-space:pre"> </span><span class="cm-property">secret</span><span style="white-space:pre">:</span><span style="white-space:pre"> </span><span class="cm-number">42</span><span style="white-space:pre"> </span><span style="white-space:pre">}</span><span style="white-space:pre">)</span><span style="white-space:pre">;</span></div><div class="empty"><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+</div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">(</span><span class="cm-keyword">async</span><span style="white-space:pre"> </span><span style="white-space:pre">(</span><span style="white-space:pre">)</span><span style="white-space:pre"> </span><span class="cm-operator">=&gt;</span><span style="white-space:pre"> </span><span style="white-space:pre">{</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">  </span><span class="cm-comment">// Step 1</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">  </span><span class="cm-comment">//</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">  </span><span class="cm-comment">// Create a Module by constructing a new `vm.Module` object. This parses the</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">  </span><span class="cm-comment">// provided source text, throwing a `SyntaxError` if anything goes wrong. By</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">  </span><span class="cm-comment">// default, a Module is created in the top context. But here, we specify</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">  </span><span class="cm-comment">// `contextifiedSandbox` as the context this Module belongs to.</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">  </span><span class="cm-comment">//</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">  </span><span class="cm-comment">// Here, we attempt to obtain the default export from the module &quot;foo&quot;, and</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">  </span><span class="cm-comment">// put it into local binding &quot;secret&quot;.</span></div><div class="empty"><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+</div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">  </span><span class="cm-keyword">const</span><span style="white-space:pre"> </span><span class="cm-def">bar</span><span style="white-space:pre"> </span><span class="cm-operator">=</span><span style="white-space:pre"> </span><span class="cm-keyword">new</span><span style="white-space:pre"> </span><span class="cm-variable">vm</span><span style="white-space:pre">.</span><span class="cm-property">Module</span><span style="white-space:pre">(</span><span class="cm-string-2">`</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">    </span><span class="cm-string-2">import s from &#x27;foo&#x27;;</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">    </span><span class="cm-string-2">s;</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">  </span><span class="cm-string-2">`</span><span style="white-space:pre">,</span><span style="white-space:pre"> </span><span style="white-space:pre">{</span><span style="white-space:pre"> </span><span class="cm-property">context</span><span style="white-space:pre">:</span><span style="white-space:pre"> </span><span class="cm-variable">contextifiedSandbox</span><span style="white-space:pre"> </span><span style="white-space:pre">}</span><span style="white-space:pre">)</span><span style="white-space:pre">;</span></div><div class="empty"><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+</div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">  </span><span class="cm-comment">// Step 2</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">  </span><span class="cm-comment">//</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">  </span><span class="cm-comment">// &quot;Link&quot; the imported dependencies of this Module to it.</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">  </span><span class="cm-comment">//</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">  </span><span class="cm-comment">// The provided linking callback (the &quot;linker&quot;) accepts two arguments: the</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">  </span><span class="cm-comment">// parent module (`bar` in this case) and the string that is the specifier of</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">  </span><span class="cm-comment">// the imported module. The callback is expected to return a Module that</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">  </span><span class="cm-comment">// corresponds to the provided specifier, with certain requirements documented</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">  </span><span class="cm-comment">// in `module.link()`.</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">  </span><span class="cm-comment">//</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">  </span><span class="cm-comment">// If linking has not started for the returned Module, the same linker</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">  </span><span class="cm-comment">// callback will be called on the returned Module.</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">  </span><span class="cm-comment">//</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">  </span><span class="cm-comment">// Even top-level Modules without dependencies must be explicitly linked. The</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">  </span><span class="cm-comment">// callback provided would never be called, however.</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">  </span><span class="cm-comment">//</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">  </span><span class="cm-comment">// The link() method returns a Promise that will be resolved when all the</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">  </span><span class="cm-comment">// Promises returned by the linker resolve.</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">  </span><span class="cm-comment">//</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">  </span><span class="cm-comment">// Note: This is a contrived example in that the linker function creates a new</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">  </span><span class="cm-comment">// &quot;foo&quot; module every time it is called. In a full-fledged module system, a</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">  </span><span class="cm-comment">// cache would probably be used to avoid duplicated modules.</span></div><div class="empty"><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+</div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">  </span><span class="cm-keyword">async</span><span style="white-space:pre"> </span><span class="cm-keyword">function</span><span style="white-space:pre"> </span><span class="cm-def">linker</span><span style="white-space:pre">(</span><span class="cm-def">specifier</span><span style="white-space:pre">,</span><span style="white-space:pre"> </span><span class="cm-def">referencingModule</span><span style="white-space:pre">)</span><span style="white-space:pre"> </span><span style="white-space:pre">{</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">    </span><span class="cm-keyword">if</span><span style="white-space:pre"> </span><span style="white-space:pre">(</span><span class="cm-variable-2">specifier</span><span style="white-space:pre"> </span><span class="cm-operator">===</span><span style="white-space:pre"> </span><span class="cm-string">&#x27;foo&#x27;</span><span style="white-space:pre">)</span><span style="white-space:pre"> </span><span style="white-space:pre">{</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">      </span><span class="cm-keyword">return</span><span style="white-space:pre"> </span><span class="cm-keyword">new</span><span style="white-space:pre"> </span><span class="cm-variable">vm</span><span style="white-space:pre">.</span><span class="cm-property">Module</span><span style="white-space:pre">(</span><span class="cm-string-2">`</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">        </span><span class="cm-string-2">// The &quot;secret&quot; variable refers to the global variable we added to</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">        </span><span class="cm-string-2">// &quot;contextifiedSandbox&quot; when creating the context.</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">        </span><span class="cm-string-2">export default secret;</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">      </span><span class="cm-string-2">`</span><span style="white-space:pre">,</span><span style="white-space:pre"> </span><span style="white-space:pre">{</span><span style="white-space:pre"> </span><span class="cm-property">context</span><span style="white-space:pre">:</span><span style="white-space:pre"> </span><span class="cm-variable-2">referencingModule</span><span style="white-space:pre">.</span><span class="cm-property">context</span><span style="white-space:pre"> </span><span style="white-space:pre">}</span><span style="white-space:pre">)</span><span style="white-space:pre">;</span></div><div class="empty"><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+</div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">      </span><span class="cm-comment">// Using `contextifiedSandbox` instead of `referencingModule.context`</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">      </span><span class="cm-comment">// here would work as well.</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">    </span><span style="white-space:pre">}</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">    </span><span class="cm-keyword">throw</span><span style="white-space:pre"> </span><span class="cm-keyword">new</span><span style="white-space:pre"> </span><span class="cm-variable">Error</span><span style="white-space:pre">(</span><span class="cm-string-2">`Unable to resolve dependency: ${</span><span class="cm-variable-2">specifier</span><span class="cm-string-2">}</span><span class="cm-string-2">`</span><span style="white-space:pre">)</span><span style="white-space:pre">;</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">  </span><span style="white-space:pre">}</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">  </span><span class="cm-keyword">await</span><span style="white-space:pre"> </span><span class="cm-variable-2">bar</span><span style="white-space:pre">.</span><span class="cm-property">link</span><span style="white-space:pre">(</span><span class="cm-variable-2">linker</span><span style="white-space:pre">)</span><span style="white-space:pre">;</span></div><div class="empty"><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+</div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">  </span><span class="cm-comment">// Step 3</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">  </span><span class="cm-comment">//</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">  </span><span class="cm-comment">// Instantiate the top-level Module.</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">  </span><span class="cm-comment">//</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">  </span><span class="cm-comment">// Only the top-level Module needs to be explicitly instantiated; its</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">  </span><span class="cm-comment">// dependencies will be recursively instantiated by instantiate().</span></div><div class="empty"><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+</div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">  </span><span class="cm-variable-2">bar</span><span style="white-space:pre">.</span><span class="cm-property">instantiate</span><span style="white-space:pre">(</span><span style="white-space:pre">)</span><span style="white-space:pre">;</span></div><div class="empty"><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+</div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">  </span><span class="cm-comment">// Step 4</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">  </span><span class="cm-comment">//</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">  </span><span class="cm-comment">// Evaluate the Module. The evaluate() method returns a Promise with a single</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">  </span><span class="cm-comment">// property &quot;result&quot; that contains the result of the very last statement</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">  </span><span class="cm-comment">// executed in the Module. In the case of `bar`, it is `s;`, which refers to</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">  </span><span class="cm-comment">// the default export of the `foo` module, the `secret` we set in the</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">  </span><span class="cm-comment">// beginning to 42.</span></div><div class="empty"><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+</div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">  </span><span class="cm-keyword">const</span><span style="white-space:pre"> </span><span style="white-space:pre">{</span><span style="white-space:pre"> </span><span class="cm-def">result</span><span style="white-space:pre"> </span><span style="white-space:pre">}</span><span style="white-space:pre"> </span><span class="cm-operator">=</span><span style="white-space:pre"> </span><span class="cm-keyword">await</span><span style="white-space:pre"> </span><span class="cm-variable-2">bar</span><span style="white-space:pre">.</span><span class="cm-property">evaluate</span><span style="white-space:pre">(</span><span style="white-space:pre">)</span><span style="white-space:pre">;</span></div><div class="empty"><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+</div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">  </span><span class="cm-variable">console</span><span style="white-space:pre">.</span><span class="cm-property">log</span><span style="white-space:pre">(</span><span class="cm-variable-2">result</span><span style="white-space:pre">)</span><span style="white-space:pre">;</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">  </span><span class="cm-comment">// Prints 42.</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">}</span><span style="white-space:pre">)</span><span style="white-space:pre">(</span><span style="white-space:pre">)</span><span style="white-space:pre">;</span></div></div></div><script>
+        var tag = document.currentScript || (function (scripts)
+        {
+            return scripts[scripts.length - 1];
+        })(document.getElementsByTagName("script"));
+        var target = tag.previousSibling;
+        var configuration = {"getShareableURL":false,"evaluateOnLoad":false};
+
+        ["getShareableURL", "onLoad", "evaluateOnLoad"].map(function (method)
+        {
+            if (configuration[method])
+                configuration[method] = function ()
+                {
+                    window[method].apply(null, arguments);
+                }
+        });
+
+        configuration.element = target;
+        configuration.source = RunKit.sourceFromElement(target);
+        configuration.clearParentContents = true;
+        var notebook = RunKit.createNotebook(configuration);
+        </script></div></code></div></div></section><section class="css-k008qs"><div class="css-17bai9i"><div class="css-1deafrq"><h3>Constructor: new vm.Module(code[, options])</h3><span></span><ul><li><code class="inline">code</code> {string} JavaScript Module code to parse</li><li><code class="inline">options</code><ul><li><code class="inline">url</code> {string} URL used in module resolution and stack traces. <strong>Default:</strong>
+<code class="inline">&#x27;vm:module(i)&#x27;</code> where <code class="inline">i</code> is a context-specific ascending index.</li><li><code class="inline">context</code> {Object} The <a href="#vm_what_does_it_mean_to_contextify_an_object">contextified</a> object as returned by the
+<code class="inline">vm.createContext()</code> method, to compile and evaluate this Module in.</li><li><code class="inline">lineOffset</code> {integer} Specifies the line number offset that is displayed
+in stack traces produced by this Module.</li><li><code class="inline">columnOffset</code> {integer} Spcifies the column number offset that is displayed
+in stack traces produced by this Module.</li><li><code class="inline">initalizeImportMeta</code> {Function} Called during evaluation of this Module to
+initialize the <code class="inline">import.meta</code>. This function has the signature <code class="inline">(meta, module)</code>, where <code class="inline">meta</code> is the <code class="inline">import.meta</code> object in the Module, and
+<code class="inline">module</code> is this <code class="inline">vm.Module</code> object.</li></ul></li></ul><p>Creates a new ES <code class="inline">Module</code> object.</p><p><em>Note</em>: Properties assigned to the <code class="inline">import.meta</code> object that are objects may
+allow the Module to access information outside the specified <code class="inline">context</code>, if the
+object is created in the top level context. Use <code class="inline">vm.runInContext()</code> to create
+objects in a specific context.</p></div></div><div class="css-lmvmh4"><div class="css-rpwxhi"><code><div><div class="cm-s-runkit-light"><div class="CodeMirror CodeMirror-lines theme-border-color theme-border-radius css-1jscp06"><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div><span class="cm-keyword">const</span><span style="white-space:pre"> </span><span class="cm-def">vm</span><span style="white-space:pre"> </span><span class="cm-operator">=</span><span style="white-space:pre"> </span><span class="cm-variable">require</span><span style="white-space:pre">(</span><span class="cm-string">&#x27;vm&#x27;</span><span style="white-space:pre">)</span><span style="white-space:pre">;</span></div><div class="empty"><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+</div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span class="cm-keyword">const</span><span style="white-space:pre"> </span><span class="cm-def">contextifiedSandbox</span><span style="white-space:pre"> </span><span class="cm-operator">=</span><span style="white-space:pre"> </span><span class="cm-variable">vm</span><span style="white-space:pre">.</span><span class="cm-property">createContext</span><span style="white-space:pre">(</span><span style="white-space:pre">{</span><span style="white-space:pre"> </span><span class="cm-property">secret</span><span style="white-space:pre">:</span><span style="white-space:pre"> </span><span class="cm-number">42</span><span style="white-space:pre"> </span><span style="white-space:pre">}</span><span style="white-space:pre">)</span><span style="white-space:pre">;</span></div><div class="empty"><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+</div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">(</span><span class="cm-keyword">async</span><span style="white-space:pre"> </span><span style="white-space:pre">(</span><span style="white-space:pre">)</span><span style="white-space:pre"> </span><span class="cm-operator">=&gt;</span><span style="white-space:pre"> </span><span style="white-space:pre">{</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">  </span><span class="cm-keyword">const</span><span style="white-space:pre"> </span><span class="cm-def">module</span><span style="white-space:pre"> </span><span class="cm-operator">=</span><span style="white-space:pre"> </span><span class="cm-keyword">new</span><span style="white-space:pre"> </span><span class="cm-variable">vm</span><span style="white-space:pre">.</span><span class="cm-property">Module</span><span style="white-space:pre">(</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">    </span><span class="cm-string">&#x27;Object.getPrototypeOf(import.meta.prop).secret = secret;&#x27;</span><span style="white-space:pre">,</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">    </span><span style="white-space:pre">{</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">      </span><span class="cm-property">initializeImportMeta</span><span style="white-space:pre">(</span><span class="cm-def">meta</span><span style="white-space:pre">)</span><span style="white-space:pre"> </span><span style="white-space:pre">{</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">        </span><span class="cm-comment">// Note: this object is created in the top context. As such,</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">        </span><span class="cm-comment">// Object.getPrototypeOf(import.meta.prop) points to the</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">        </span><span class="cm-comment">// Object.prototype in the top context rather than that in</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">        </span><span class="cm-comment">// the sandbox.</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">        </span><span class="cm-variable-2">meta</span><span style="white-space:pre">.</span><span class="cm-property">prop</span><span style="white-space:pre"> </span><span class="cm-operator">=</span><span style="white-space:pre"> </span><span style="white-space:pre">{</span><span style="white-space:pre">}</span><span style="white-space:pre">;</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">      </span><span style="white-space:pre">}</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">    </span><span style="white-space:pre">}</span><span style="white-space:pre">)</span><span style="white-space:pre">;</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">  </span><span class="cm-comment">// Since module has no dependencies, the linker function will never be called.</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">  </span><span class="cm-keyword">await</span><span style="white-space:pre"> </span><span class="cm-variable-2">module</span><span style="white-space:pre">.</span><span class="cm-property">link</span><span style="white-space:pre">(</span><span style="white-space:pre">(</span><span style="white-space:pre">)</span><span style="white-space:pre"> </span><span class="cm-operator">=&gt;</span><span style="white-space:pre"> </span><span style="white-space:pre">{</span><span style="white-space:pre">}</span><span style="white-space:pre">)</span><span style="white-space:pre">;</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">  </span><span class="cm-variable-2">module</span><span style="white-space:pre">.</span><span class="cm-property">initialize</span><span style="white-space:pre">(</span><span style="white-space:pre">)</span><span style="white-space:pre">;</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">  </span><span class="cm-keyword">await</span><span style="white-space:pre"> </span><span class="cm-variable-2">module</span><span style="white-space:pre">.</span><span class="cm-property">evaluate</span><span style="white-space:pre">(</span><span style="white-space:pre">)</span><span style="white-space:pre">;</span></div><div class="empty"><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+</div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">  </span><span class="cm-comment">// Now, Object.prototype.secret will be equal to 42.</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">  </span><span class="cm-comment">//</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">  </span><span class="cm-comment">// To fix this problem, replace</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">  </span><span class="cm-comment">//     meta.prop = {};</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">  </span><span class="cm-comment">// above with</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">  </span><span class="cm-comment">//     meta.prop = vm.runInContext(&#x27;{}&#x27;, contextifiedSandbox);</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">}</span><span style="white-space:pre">)</span><span style="white-space:pre">(</span><span style="white-space:pre">)</span><span style="white-space:pre">;</span></div></div></div><script>
+        var tag = document.currentScript || (function (scripts)
+        {
+            return scripts[scripts.length - 1];
+        })(document.getElementsByTagName("script"));
+        var target = tag.previousSibling;
+        var configuration = {"getShareableURL":false,"evaluateOnLoad":false};
+
+        ["getShareableURL", "onLoad", "evaluateOnLoad"].map(function (method)
+        {
+            if (configuration[method])
+                configuration[method] = function ()
+                {
+                    window[method].apply(null, arguments);
+                }
+        });
+
+        configuration.element = target;
+        configuration.source = RunKit.sourceFromElement(target);
+        configuration.clearParentContents = true;
+        var notebook = RunKit.createNotebook(configuration);
+        </script></div></code></div></div></section><section class="css-k008qs"><div class="css-17bai9i"><div class="css-1deafrq"><h3>module.dependencySpecifiers</h3><span></span><ul><li>{string[]}</li></ul><p>The specifiers of all dependencies of this module. The returned array is frozen
+to disallow any changes to it.</p><p>Corresponds to the [[RequestedModules]] field of <a href="https://tc39.github.io/ecma262/#sec-source-text-module-records">Source Text Module Record</a>s
+in the ECMAScript specification.</p></div></div><div class="css-lmvmh4"><div class="css-rpwxhi"></div></div></section><section class="css-k008qs"><div class="css-17bai9i"><div class="css-1deafrq"><h3>module.error</h3><span></span><ul><li>{any}</li></ul><p>If the <code class="inline">module.status</code> is <code class="inline">&#x27;errored&#x27;</code>, this property contains the exception
+thrown by the module during evaluation. If the status is anything else,
+accessing this property will result in a thrown exception.</p><p>The value <code class="inline">undefined</code> cannot be used for cases where there is not a thrown
+exception due to possible ambiguity with <code class="inline">throw undefined;</code>.</p><p>Corresponds to the [[EvaluationError]] field of <a href="https://tc39.github.io/ecma262/#sec-source-text-module-records">Source Text Module Record</a>s
+in the ECMAScript specification.</p></div></div><div class="css-lmvmh4"><div class="css-rpwxhi"></div></div></section><section class="css-k008qs"><div class="css-17bai9i"><div class="css-1deafrq"><h3>module.linkingStatus</h3><span></span><ul><li>{string}</li></ul><p>The current linking status of <code class="inline">module</code>. It will be one of the following values:</p><ul><li><code class="inline">&#x27;unlinked&#x27;</code>: <code class="inline">module.link()</code> has not yet been called.</li><li><code class="inline">&#x27;linking&#x27;</code>: <code class="inline">module.link()</code> has been called, but not all Promises returned by
+the linker function have been resolved yet.</li><li><code class="inline">&#x27;linked&#x27;</code>: <code class="inline">module.link()</code> has been called, and all its dependencies have
+been successfully linked.</li><li><code class="inline">&#x27;errored&#x27;</code>: <code class="inline">module.link()</code> has been called, but at least one of its
+dependencies failed to link, either because the callback returned a Promise
+that is rejected, or because the Module the callback returned is invalid.</li></ul></div></div><div class="css-lmvmh4"><div class="css-rpwxhi"></div></div></section><section class="css-k008qs"><div class="css-17bai9i"><div class="css-1deafrq"><h3>module.namespace</h3><span></span><ul><li>{Object}</li></ul><p>The namespace object of the module. This is only available after instantiation
+(<code class="inline">module.instantiate()</code>) has completed.</p><p>Corresponds to the <a href="https://tc39.github.io/ecma262/#sec-getmodulenamespace">GetModuleNamespace</a> abstract operation in the ECMAScript
+specification.</p></div></div><div class="css-lmvmh4"><div class="css-rpwxhi"></div></div></section><section class="css-k008qs"><div class="css-17bai9i"><div class="css-1deafrq"><h3>module.status</h3><span></span><ul><li>{string}</li></ul><p>The current status of the module. Will be one of:</p><ul><li><p><code class="inline">&#x27;uninstantiated&#x27;</code>: The module is not instantiated. It may because of any of
+the following reasons:</p><ul><li>The module was just created.</li><li><code class="inline">module.instantiate()</code> has been called on this module, but it failed for
+some reason.</li></ul><p>This status does not convey any information regarding if <code class="inline">module.link()</code> has
+been called. See <code class="inline">module.linkingStatus</code> for that.</p></li><li><p><code class="inline">&#x27;instantiating&#x27;</code>: The module is currently being instantiated through a
+<code class="inline">module.instantiate()</code> call on itself or a parent module.</p></li><li><p><code class="inline">&#x27;instantiated&#x27;</code>: The module has been instantiated successfully, but
+<code class="inline">module.evaluate()</code> has not yet been called.</p></li><li><p><code class="inline">&#x27;evaluating&#x27;</code>: The module is being evaluated through a <code class="inline">module.evaluate()</code> on
+itself or a parent module.</p></li><li><p><code class="inline">&#x27;evaluated&#x27;</code>: The module has been successfully evaluated.</p></li><li><p><code class="inline">&#x27;errored&#x27;</code>: The module has been evaluated, but an exception was thrown.</p></li></ul><p>Other than <code class="inline">&#x27;errored&#x27;</code>, this status string corresponds to the specification&#x27;s
+<a href="https://tc39.github.io/ecma262/#sec-source-text-module-records">Source Text Module Record</a>&#x27;s [[Status]] field. <code class="inline">&#x27;errored&#x27;</code> corresponds to
+<code class="inline">&#x27;evaluated&#x27;</code> in the specification, but with [[EvaluationError]] set to a value
+that is not <code class="inline">undefined</code>.</p></div></div><div class="css-lmvmh4"><div class="css-rpwxhi"></div></div></section><section class="css-k008qs"><div class="css-17bai9i"><div class="css-1deafrq"><h3>module.url</h3><span></span><ul><li>{string}</li></ul><p>The URL of the current module, as set in the constructor.</p></div></div><div class="css-lmvmh4"><div class="css-rpwxhi"></div></div></section><section class="css-k008qs"><div class="css-17bai9i"><div class="css-1deafrq"><h3>module.evaluate([options])</h3><span></span><ul><li><code class="inline">options</code> {Object}<ul><li><code class="inline">timeout</code> {number} Specifies the number of milliseconds to evaluate
+before terminating execution. If execution is interrupted, an <a href="errors.html#errors_class_error"><code class="inline">Error</code></a>
+will be thrown.</li><li><code class="inline">breakOnSigint</code> {boolean} If <code class="inline">true</code>, the execution will be terminated when
+<code class="inline">SIGINT</code> (Ctrl+C) is received. Existing handlers for the event that have
+been attached via <code class="inline">process.on(&#x27;SIGINT&#x27;)</code> will be disabled during script
+execution, but will continue to work after that. If execution is
+interrupted, an <a href="errors.html#errors_class_error"><code class="inline">Error</code></a> will be thrown.</li></ul></li><li>Returns: {Promise}</li></ul><p>Evaluate the module.</p><p>This must be called after the module has been instantiated; otherwise it will
+throw an error. It could be called also when the module has already been
+evaluated, in which case it will do one of the following two things:</p><ul><li>return <code class="inline">undefined</code> if the initial evaluation ended in success (<code class="inline">module.status</code>
+is <code class="inline">&#x27;evaluated&#x27;</code>)</li><li>rethrow the same exception the initial evaluation threw if the initial
+evaluation ended in an error (<code class="inline">module.status</code> is <code class="inline">&#x27;errored&#x27;</code>)</li></ul><p>This method cannot be called while the module is being evaluated
+(<code class="inline">module.status</code> is <code class="inline">&#x27;evaluating&#x27;</code>) to prevent infinite recursion.</p><p>Corresponds to the <a href="https://tc39.github.io/ecma262/#sec-moduleevaluation">Evaluate() concrete method</a> field of <a href="https://tc39.github.io/ecma262/#sec-source-text-module-records">Source Text Module
+Record</a>s in the ECMAScript specification.</p></div></div><div class="css-lmvmh4"><div class="css-rpwxhi"></div></div></section><section class="css-k008qs"><div class="css-17bai9i"><div class="css-1deafrq"><h3>module.instantiate()</h3><span></span><p>Instantiate the module. This must be called after linking has completed
+(<code class="inline">linkingStatus</code> is <code class="inline">&#x27;linked&#x27;</code>); otherwise it will throw an error. It may also
+throw an exception if one of the dependencies does not provide an export the
+parent module requires.</p><p>However, if this function succeeded, further calls to this function after the
+initial instantiation will be no-ops, to be consistent with the ECMAScript
+specification.</p><p>Unlike other methods operating on <code class="inline">Module</code>, this function completes
+synchronously and returns nothing.</p><p>Corresponds to the <a href="https://tc39.github.io/ecma262/#sec-moduledeclarationinstantiation">Instantiate() concrete method</a> field of <a href="https://tc39.github.io/ecma262/#sec-source-text-module-records">Source Text
+Module Record</a>s in the ECMAScript specification.</p></div></div><div class="css-lmvmh4"><div class="css-rpwxhi"></div></div></section><section class="css-k008qs"><div class="css-17bai9i"><div class="css-1deafrq"><h3>module.link(linker)</h3><span></span><ul><li><code class="inline">linker</code> {Function}</li><li>Returns: {Promise}</li></ul><p>Link module dependencies. This method must be called before instantiation, and
+can only be called once per module.</p><p>Two parameters will be passed to the <code class="inline">linker</code> function:</p><ul><li><code class="inline">specifier</code> The specifier of the requested module:<div><!-- eslint-skip --></div><code><div><div class="cm-s-runkit-light"><div class="CodeMirror CodeMirror-lines theme-border-color theme-border-radius css-1jscp06"><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div><span class="cm-keyword">import</span><span style="white-space:pre"> </span><span class="cm-def">foo</span><span style="white-space:pre"> </span><span class="cm-keyword">from</span><span style="white-space:pre"> </span><span class="cm-string">&#x27;foo&#x27;</span><span style="white-space:pre">;</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span class="cm-comment">//              ^^^^^ the module specifier</span></div></div></div><script>
+        var tag = document.currentScript || (function (scripts)
+        {
+            return scripts[scripts.length - 1];
+        })(document.getElementsByTagName("script"));
+        var target = tag.previousSibling;
+        var configuration = {"getShareableURL":false,"evaluateOnLoad":false};
+
+        ["getShareableURL", "onLoad", "evaluateOnLoad"].map(function (method)
+        {
+            if (configuration[method])
+                configuration[method] = function ()
+                {
+                    window[method].apply(null, arguments);
+                }
+        });
+
+        configuration.element = target;
+        configuration.source = RunKit.sourceFromElement(target);
+        configuration.clearParentContents = true;
+        var notebook = RunKit.createNotebook(configuration);
+        </script></div></code></li><li><code class="inline">referencingModule</code> The <code class="inline">Module</code> object <code class="inline">link()</code> is called on.</li></ul><p>The function is expected to return a <code class="inline">Module</code> object or a <code class="inline">Promise</code> that
+eventually resolves to a <code class="inline">Module</code> object. The returned <code class="inline">Module</code> must satisfy the
+following two invariants:</p><ul><li>It must belong to the same context as the parent <code class="inline">Module</code>.</li><li>Its <code class="inline">linkingStatus</code> must not be <code class="inline">&#x27;errored&#x27;</code>.</li></ul><p>If the returned <code class="inline">Module</code>&#x27;s <code class="inline">linkingStatus</code> is <code class="inline">&#x27;unlinked&#x27;</code>, this method will be
+recursively called on the returned <code class="inline">Module</code> with the same provided <code class="inline">linker</code>
+function.</p><p><code class="inline">link()</code> returns a <code class="inline">Promise</code> that will either get resolved when all linking
+instances resolve to a valid <code class="inline">Module</code>, or rejected if the linker function either
+throws an exception or returns an invalid <code class="inline">Module</code>.</p><p>The linker function roughly corresponds to the implementation-defined
+<a href="https://tc39.github.io/ecma262/#sec-hostresolveimportedmodule">HostResolveImportedModule</a> abstract operation in the ECMAScript
+specification, with a few key differences:</p><ul><li>The linker function is allowed to be asynchronous while
+<a href="https://tc39.github.io/ecma262/#sec-hostresolveimportedmodule">HostResolveImportedModule</a> is synchronous.</li><li>The linker function is executed during linking, a Node.js-specific stage
+before instantiation, while <a href="https://tc39.github.io/ecma262/#sec-hostresolveimportedmodule">HostResolveImportedModule</a> is called during
+instantiation.</li></ul><p>The actual <a href="https://tc39.github.io/ecma262/#sec-hostresolveimportedmodule">HostResolveImportedModule</a> implementation used during module
+instantiation is one that returns the modules linked during linking. Since at
+that point all modules would have been fully linked already, the
+<a href="https://tc39.github.io/ecma262/#sec-hostresolveimportedmodule">HostResolveImportedModule</a> implementation is fully synchronous per
+specification.</p></div></div><div class="css-lmvmh4"><div class="css-rpwxhi"></div></div></section><section class="css-k008qs"><div class="css-17bai9i"><div class="css-1deafrq"><h2>Class: vm.Script</h2><span></span><p>Instances of the <code class="inline">vm.Script</code> class contain precompiled scripts that can be
+executed in specific sandboxes (or &quot;contexts&quot;).</p></div></div><div class="css-lmvmh4"><div class="css-rpwxhi"></div></div></section><section class="css-k008qs"><div class="css-17bai9i"><div class="css-1deafrq"><h3>new vm.Script(code, options)</h3><span></span><ul><li><code class="inline">code</code> {string} The JavaScript code to compile.</li><li><code class="inline">options</code><ul><li><code class="inline">filename</code> {string} Specifies the filename used in stack traces produced
+by this script.</li><li><code class="inline">lineOffset</code> {number} Specifies the line number offset that is displayed
+in stack traces produced by this script.</li><li><code class="inline">columnOffset</code> {number} Specifies the column number offset that is displayed
+in stack traces produced by this script.</li><li><code class="inline">displayErrors</code> {boolean} When <code class="inline">true</code>, if an <a href="errors.html#errors_class_error"><code class="inline">Error</code></a> error occurs
+while compiling the <code class="inline">code</code>, the line of code causing the error is attached
+to the stack trace.</li><li><code class="inline">timeout</code> {number} Specifies the number of milliseconds to execute <code class="inline">code</code>
+before terminating execution. If execution is terminated, an <a href="errors.html#errors_class_error"><code class="inline">Error</code></a>
+will be thrown.</li><li><code class="inline">cachedData</code> {Buffer} Provides an optional <code class="inline">Buffer</code> with V8&#x27;s code cache
+data for the supplied source. When supplied, the <code class="inline">cachedDataRejected</code> value
+will be set to either <code class="inline">true</code> or <code class="inline">false</code> depending on acceptance of the data
+by V8.</li><li><code class="inline">produceCachedData</code> {boolean} When <code class="inline">true</code> and no <code class="inline">cachedData</code> is present, V8
+will attempt to produce code cache data for <code class="inline">code</code>. Upon success, a
+<code class="inline">Buffer</code> with V8&#x27;s code cache data will be produced and stored in the
+<code class="inline">cachedData</code> property of the returned <code class="inline">vm.Script</code> instance.
+The <code class="inline">cachedDataProduced</code> value will be set to either <code class="inline">true</code> or <code class="inline">false</code>
+depending on whether code cache data is produced successfully.</li></ul></li></ul><p>Creating a new <code class="inline">vm.Script</code> object compiles <code class="inline">code</code> but does not run it. The
+compiled <code class="inline">vm.Script</code> can be run later multiple times. The <code class="inline">code</code> is not bound to
+any global object; rather, it is bound before each run, just for that run.</p></div></div><div class="css-lmvmh4"><div class="css-rpwxhi"></div></div></section><section class="css-k008qs"><div class="css-17bai9i"><div class="css-1deafrq"><h3>script.runInContext(contextifiedSandbox[, options])</h3><span></span><ul><li><code class="inline">contextifiedSandbox</code> {Object} A <a href="#vm_what_does_it_mean_to_contextify_an_object">contextified</a> object as returned by the
+<code class="inline">vm.createContext()</code> method.</li><li><code class="inline">options</code> {Object}<ul><li><code class="inline">filename</code> {string} Specifies the filename used in stack traces produced
+by this script.</li><li><code class="inline">lineOffset</code> {number} Specifies the line number offset that is displayed
+in stack traces produced by this script.</li><li><code class="inline">columnOffset</code> {number} Specifies the column number offset that is displayed
+in stack traces produced by this script.</li><li><code class="inline">displayErrors</code> {boolean} When <code class="inline">true</code>, if an <a href="errors.html#errors_class_error"><code class="inline">Error</code></a> error occurs
+while compiling the <code class="inline">code</code>, the line of code causing the error is attached
+to the stack trace.</li><li><code class="inline">timeout</code> {number} Specifies the number of milliseconds to execute <code class="inline">code</code>
+before terminating execution. If execution is terminated, an <a href="errors.html#errors_class_error"><code class="inline">Error</code></a>
+will be thrown.</li><li><code class="inline">breakOnSigint</code>: if <code class="inline">true</code>, the execution will be terminated when
+<code class="inline">SIGINT</code> (Ctrl+C) is received. Existing handlers for the
+event that have been attached via <code class="inline">process.on(&#x27;SIGINT&#x27;)</code> will be disabled
+during script execution, but will continue to work after that.
+If execution is terminated, an <a href="errors.html#errors_class_error"><code class="inline">Error</code></a> will be thrown.</li></ul></li></ul><p>Runs the compiled code contained by the <code class="inline">vm.Script</code> object within the given
+<code class="inline">contextifiedSandbox</code> and returns the result. Running code does not have access
+to local scope.</p><p>The following example compiles code that increments a global variable, sets
+the value of another global variable, then execute the code multiple times.
+The globals are contained in the <code class="inline">sandbox</code> object.</p><p>Using the <code class="inline">timeout</code> or <code class="inline">breakOnSigint</code> options will result in new event loops
+and corresponding threads being started, which have a non-zero performance
+overhead.</p></div></div><div class="css-lmvmh4"><div class="css-rpwxhi"><code><div><div class="cm-s-runkit-light"><div class="CodeMirror CodeMirror-lines theme-border-color theme-border-radius css-1jscp06"><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div><span class="cm-keyword">const</span><span style="white-space:pre"> </span><span class="cm-def">util</span><span style="white-space:pre"> </span><span class="cm-operator">=</span><span style="white-space:pre"> </span><span class="cm-variable">require</span><span style="white-space:pre">(</span><span class="cm-string">&#x27;util&#x27;</span><span style="white-space:pre">)</span><span style="white-space:pre">;</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span class="cm-keyword">const</span><span style="white-space:pre"> </span><span class="cm-def">vm</span><span style="white-space:pre"> </span><span class="cm-operator">=</span><span style="white-space:pre"> </span><span class="cm-variable">require</span><span style="white-space:pre">(</span><span class="cm-string">&#x27;vm&#x27;</span><span style="white-space:pre">)</span><span style="white-space:pre">;</span></div><div class="empty"><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+</div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span class="cm-keyword">const</span><span style="white-space:pre"> </span><span class="cm-def">sandbox</span><span style="white-space:pre"> </span><span class="cm-operator">=</span><span style="white-space:pre"> </span><span style="white-space:pre">{</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">  </span><span class="cm-property">animal</span><span style="white-space:pre">:</span><span style="white-space:pre"> </span><span class="cm-string">&#x27;cat&#x27;</span><span style="white-space:pre">,</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">  </span><span class="cm-property">count</span><span style="white-space:pre">:</span><span style="white-space:pre"> </span><span class="cm-number">2</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">}</span><span style="white-space:pre">;</span></div><div class="empty"><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+</div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span class="cm-keyword">const</span><span style="white-space:pre"> </span><span class="cm-def">script</span><span style="white-space:pre"> </span><span class="cm-operator">=</span><span style="white-space:pre"> </span><span class="cm-keyword">new</span><span style="white-space:pre"> </span><span class="cm-variable">vm</span><span style="white-space:pre">.</span><span class="cm-property">Script</span><span style="white-space:pre">(</span><span class="cm-string">&#x27;count += 1; name = &quot;kitty&quot;;&#x27;</span><span style="white-space:pre">)</span><span style="white-space:pre">;</span></div><div class="empty"><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+</div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span class="cm-keyword">const</span><span style="white-space:pre"> </span><span class="cm-def">context</span><span style="white-space:pre"> </span><span class="cm-operator">=</span><span style="white-space:pre"> </span><span class="cm-variable">vm</span><span style="white-space:pre">.</span><span class="cm-property">createContext</span><span style="white-space:pre">(</span><span class="cm-variable">sandbox</span><span style="white-space:pre">)</span><span style="white-space:pre">;</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span class="cm-keyword">for</span><span style="white-space:pre"> </span><span style="white-space:pre">(</span><span class="cm-keyword">let</span><span style="white-space:pre"> </span><span class="cm-def">i</span><span style="white-space:pre"> </span><span class="cm-operator">=</span><span style="white-space:pre"> </span><span class="cm-number">0</span><span style="white-space:pre">;</span><span style="white-space:pre"> </span><span class="cm-variable">i</span><span style="white-space:pre"> </span><span class="cm-operator">&lt;</span><span style="white-space:pre"> </span><span class="cm-number">10</span><span style="white-space:pre">;</span><span style="white-space:pre"> </span><span class="cm-operator">++</span><span class="cm-variable">i</span><span style="white-space:pre">)</span><span style="white-space:pre"> </span><span style="white-space:pre">{</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">  </span><span class="cm-variable">script</span><span style="white-space:pre">.</span><span class="cm-property">runInContext</span><span style="white-space:pre">(</span><span class="cm-variable">context</span><span style="white-space:pre">)</span><span style="white-space:pre">;</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">}</span></div><div class="empty"><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+</div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span class="cm-variable">console</span><span style="white-space:pre">.</span><span class="cm-property">log</span><span style="white-space:pre">(</span><span class="cm-variable">util</span><span style="white-space:pre">.</span><span class="cm-property">inspect</span><span style="white-space:pre">(</span><span class="cm-variable">sandbox</span><span style="white-space:pre">)</span><span style="white-space:pre">)</span><span style="white-space:pre">;</span></div><div class="empty"><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+</div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span class="cm-comment">// { animal: &#x27;cat&#x27;, count: 12, name: &#x27;kitty&#x27; }</span></div></div></div><script>
+        var tag = document.currentScript || (function (scripts)
+        {
+            return scripts[scripts.length - 1];
+        })(document.getElementsByTagName("script"));
+        var target = tag.previousSibling;
+        var configuration = {"getShareableURL":false,"evaluateOnLoad":false};
+
+        ["getShareableURL", "onLoad", "evaluateOnLoad"].map(function (method)
+        {
+            if (configuration[method])
+                configuration[method] = function ()
+                {
+                    window[method].apply(null, arguments);
+                }
+        });
+
+        configuration.element = target;
+        configuration.source = RunKit.sourceFromElement(target);
+        configuration.clearParentContents = true;
+        var notebook = RunKit.createNotebook(configuration);
+        </script></div></code></div></div></section><section class="css-k008qs"><div class="css-17bai9i"><div class="css-1deafrq"><h3>script.runInNewContext([sandbox[, options]])</h3><span></span><ul><li><code class="inline">sandbox</code> {Object} An object that will be <a href="#vm_what_does_it_mean_to_contextify_an_object">contextified</a>. If <code class="inline">undefined</code>, a
+new object will be created.</li><li><code class="inline">options</code> {Object}<ul><li><code class="inline">filename</code> {string} Specifies the filename used in stack traces produced
+by this script.</li><li><code class="inline">lineOffset</code> {number} Specifies the line number offset that is displayed
+in stack traces produced by this script.</li><li><code class="inline">columnOffset</code> {number} Specifies the column number offset that is displayed
+in stack traces produced by this script.</li><li><code class="inline">displayErrors</code> {boolean} When <code class="inline">true</code>, if an <a href="errors.html#errors_class_error"><code class="inline">Error</code></a> error occurs
+while compiling the <code class="inline">code</code>, the line of code causing the error is attached
+to the stack trace.</li><li><code class="inline">timeout</code> {number} Specifies the number of milliseconds to execute <code class="inline">code</code>
+before terminating execution. If execution is terminated, an <a href="errors.html#errors_class_error"><code class="inline">Error</code></a>
+will be thrown.</li><li><code class="inline">contextName</code> {string} Human-readable name of the newly created context.
+<strong>Default:</strong> <code class="inline">&#x27;VM Context i&#x27;</code>, where <code class="inline">i</code> is an ascending numerical index of
+the created context.</li><li><code class="inline">contextOrigin</code> {string} <a href="https://developer.mozilla.org/en-US/docs/Glossary/Origin">Origin</a> corresponding to the newly
+created context for display purposes. The origin should be formatted like a
+URL, but with only the scheme, host, and port (if necessary), like the
+value of the <a href="url.html#url_url_origin"><code class="inline">url.origin</code></a> property of a <a href="url.html#url_class_url"><code class="inline">URL</code></a> object. Most notably,
+this string should omit the trailing slash, as that denotes a path.
+<strong>Default:</strong> <code class="inline">&#x27;&#x27;</code>.</li><li><code class="inline">contextCodeGeneration</code> {Object}<ul><li><code class="inline">strings</code> {boolean} If set to false any calls to <code class="inline">eval</code> or function
+constructors (<code class="inline">Function</code>, <code class="inline">GeneratorFunction</code>, etc) will throw an
+<code class="inline">EvalError</code>. <strong>Default:</strong> <code class="inline">true</code>.</li><li><code class="inline">wasm</code> {boolean} If set to false any attempt to compile a WebAssembly
+module will throw a <code class="inline">WebAssembly.CompileError</code>. <strong>Default:</strong> <code class="inline">true</code>.</li></ul></li></ul></li></ul><p>First contextifies the given <code class="inline">sandbox</code>, runs the compiled code contained by
+the <code class="inline">vm.Script</code> object within the created sandbox, and returns the result.
+Running code does not have access to local scope.</p><p>The following example compiles code that sets a global variable, then executes
+the code multiple times in different contexts. The globals are set on and
+contained within each individual <code class="inline">sandbox</code>.</p></div></div><div class="css-lmvmh4"><div class="css-rpwxhi"><code><div><div class="cm-s-runkit-light"><div class="CodeMirror CodeMirror-lines theme-border-color theme-border-radius css-1jscp06"><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div><span class="cm-keyword">const</span><span style="white-space:pre"> </span><span class="cm-def">util</span><span style="white-space:pre"> </span><span class="cm-operator">=</span><span style="white-space:pre"> </span><span class="cm-variable">require</span><span style="white-space:pre">(</span><span class="cm-string">&#x27;util&#x27;</span><span style="white-space:pre">)</span><span style="white-space:pre">;</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span class="cm-keyword">const</span><span style="white-space:pre"> </span><span class="cm-def">vm</span><span style="white-space:pre"> </span><span class="cm-operator">=</span><span style="white-space:pre"> </span><span class="cm-variable">require</span><span style="white-space:pre">(</span><span class="cm-string">&#x27;vm&#x27;</span><span style="white-space:pre">)</span><span style="white-space:pre">;</span></div><div class="empty"><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+</div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span class="cm-keyword">const</span><span style="white-space:pre"> </span><span class="cm-def">script</span><span style="white-space:pre"> </span><span class="cm-operator">=</span><span style="white-space:pre"> </span><span class="cm-keyword">new</span><span style="white-space:pre"> </span><span class="cm-variable">vm</span><span style="white-space:pre">.</span><span class="cm-property">Script</span><span style="white-space:pre">(</span><span class="cm-string">&#x27;globalVar = &quot;set&quot;&#x27;</span><span style="white-space:pre">)</span><span style="white-space:pre">;</span></div><div class="empty"><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+</div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span class="cm-keyword">const</span><span style="white-space:pre"> </span><span class="cm-def">sandboxes</span><span style="white-space:pre"> </span><span class="cm-operator">=</span><span style="white-space:pre"> </span><span style="white-space:pre">[</span><span style="white-space:pre">{</span><span style="white-space:pre">}</span><span style="white-space:pre">,</span><span style="white-space:pre"> </span><span style="white-space:pre">{</span><span style="white-space:pre">}</span><span style="white-space:pre">,</span><span style="white-space:pre"> </span><span style="white-space:pre">{</span><span style="white-space:pre">}</span><span style="white-space:pre">]</span><span style="white-space:pre">;</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span class="cm-variable">sandboxes</span><span style="white-space:pre">.</span><span class="cm-property">forEach</span><span style="white-space:pre">(</span><span style="white-space:pre">(</span><span class="cm-def">sandbox</span><span style="white-space:pre">)</span><span style="white-space:pre"> </span><span class="cm-operator">=&gt;</span><span style="white-space:pre"> </span><span style="white-space:pre">{</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">  </span><span class="cm-variable">script</span><span style="white-space:pre">.</span><span class="cm-property">runInNewContext</span><span style="white-space:pre">(</span><span class="cm-variable-2">sandbox</span><span style="white-space:pre">)</span><span style="white-space:pre">;</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">}</span><span style="white-space:pre">)</span><span style="white-space:pre">;</span></div><div class="empty"><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+</div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span class="cm-variable">console</span><span style="white-space:pre">.</span><span class="cm-property">log</span><span style="white-space:pre">(</span><span class="cm-variable">util</span><span style="white-space:pre">.</span><span class="cm-property">inspect</span><span style="white-space:pre">(</span><span class="cm-variable">sandboxes</span><span style="white-space:pre">)</span><span style="white-space:pre">)</span><span style="white-space:pre">;</span></div><div class="empty"><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+</div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span class="cm-comment">// [{ globalVar: &#x27;set&#x27; }, { globalVar: &#x27;set&#x27; }, { globalVar: &#x27;set&#x27; }]</span></div></div></div><script>
+        var tag = document.currentScript || (function (scripts)
+        {
+            return scripts[scripts.length - 1];
+        })(document.getElementsByTagName("script"));
+        var target = tag.previousSibling;
+        var configuration = {"getShareableURL":false,"evaluateOnLoad":false};
+
+        ["getShareableURL", "onLoad", "evaluateOnLoad"].map(function (method)
+        {
+            if (configuration[method])
+                configuration[method] = function ()
+                {
+                    window[method].apply(null, arguments);
+                }
+        });
+
+        configuration.element = target;
+        configuration.source = RunKit.sourceFromElement(target);
+        configuration.clearParentContents = true;
+        var notebook = RunKit.createNotebook(configuration);
+        </script></div></code></div></div></section><section class="css-k008qs"><div class="css-17bai9i"><div class="css-1deafrq"><h3>script.runInThisContext([options])</h3><span></span><ul><li><code class="inline">options</code> {Object}<ul><li><code class="inline">filename</code> {string} Specifies the filename used in stack traces produced
+by this script.</li><li><code class="inline">lineOffset</code> {number} Specifies the line number offset that is displayed
+in stack traces produced by this script.</li><li><code class="inline">columnOffset</code> {number} Specifies the column number offset that is displayed
+in stack traces produced by this script.</li><li><code class="inline">displayErrors</code> {boolean} When <code class="inline">true</code>, if an <a href="errors.html#errors_class_error"><code class="inline">Error</code></a> error occurs
+while compiling the <code class="inline">code</code>, the line of code causing the error is attached
+to the stack trace.</li><li><code class="inline">timeout</code> {number} Specifies the number of milliseconds to execute <code class="inline">code</code>
+before terminating execution. If execution is terminated, an <a href="errors.html#errors_class_error"><code class="inline">Error</code></a>
+will be thrown.</li></ul></li></ul><p>Runs the compiled code contained by the <code class="inline">vm.Script</code> within the context of the
+current <code class="inline">global</code> object. Running code does not have access to local scope, but
+<em>does</em> have access to the current <code class="inline">global</code> object.</p><p>The following example compiles code that increments a <code class="inline">global</code> variable then
+executes that code multiple times:</p></div></div><div class="css-lmvmh4"><div class="css-rpwxhi"><code><div><div class="cm-s-runkit-light"><div class="CodeMirror CodeMirror-lines theme-border-color theme-border-radius css-1jscp06"><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div><span class="cm-keyword">const</span><span style="white-space:pre"> </span><span class="cm-def">vm</span><span style="white-space:pre"> </span><span class="cm-operator">=</span><span style="white-space:pre"> </span><span class="cm-variable">require</span><span style="white-space:pre">(</span><span class="cm-string">&#x27;vm&#x27;</span><span style="white-space:pre">)</span><span style="white-space:pre">;</span></div><div class="empty"><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+</div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span class="cm-variable">global</span><span style="white-space:pre">.</span><span class="cm-property">globalVar</span><span style="white-space:pre"> </span><span class="cm-operator">=</span><span style="white-space:pre"> </span><span class="cm-number">0</span><span style="white-space:pre">;</span></div><div class="empty"><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+</div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span class="cm-keyword">const</span><span style="white-space:pre"> </span><span class="cm-def">script</span><span style="white-space:pre"> </span><span class="cm-operator">=</span><span style="white-space:pre"> </span><span class="cm-keyword">new</span><span style="white-space:pre"> </span><span class="cm-variable">vm</span><span style="white-space:pre">.</span><span class="cm-property">Script</span><span style="white-space:pre">(</span><span class="cm-string">&#x27;globalVar += 1&#x27;</span><span style="white-space:pre">,</span><span style="white-space:pre"> </span><span style="white-space:pre">{</span><span style="white-space:pre"> </span><span class="cm-property">filename</span><span style="white-space:pre">:</span><span style="white-space:pre"> </span><span class="cm-string">&#x27;myfile.vm&#x27;</span><span style="white-space:pre"> </span><span style="white-space:pre">}</span><span style="white-space:pre">)</span><span style="white-space:pre">;</span></div><div class="empty"><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+</div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span class="cm-keyword">for</span><span style="white-space:pre"> </span><span style="white-space:pre">(</span><span class="cm-keyword">let</span><span style="white-space:pre"> </span><span class="cm-def">i</span><span style="white-space:pre"> </span><span class="cm-operator">=</span><span style="white-space:pre"> </span><span class="cm-number">0</span><span style="white-space:pre">;</span><span style="white-space:pre"> </span><span class="cm-variable">i</span><span style="white-space:pre"> </span><span class="cm-operator">&lt;</span><span style="white-space:pre"> </span><span class="cm-number">1000</span><span style="white-space:pre">;</span><span style="white-space:pre"> </span><span class="cm-operator">++</span><span class="cm-variable">i</span><span style="white-space:pre">)</span><span style="white-space:pre"> </span><span style="white-space:pre">{</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">  </span><span class="cm-variable">script</span><span style="white-space:pre">.</span><span class="cm-property">runInThisContext</span><span style="white-space:pre">(</span><span style="white-space:pre">)</span><span style="white-space:pre">;</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">}</span></div><div class="empty"><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+</div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span class="cm-variable">console</span><span style="white-space:pre">.</span><span class="cm-property">log</span><span style="white-space:pre">(</span><span class="cm-variable">globalVar</span><span style="white-space:pre">)</span><span style="white-space:pre">;</span></div><div class="empty"><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+</div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span class="cm-comment">// 1000</span></div></div></div><script>
+        var tag = document.currentScript || (function (scripts)
+        {
+            return scripts[scripts.length - 1];
+        })(document.getElementsByTagName("script"));
+        var target = tag.previousSibling;
+        var configuration = {"getShareableURL":false,"evaluateOnLoad":false};
+
+        ["getShareableURL", "onLoad", "evaluateOnLoad"].map(function (method)
+        {
+            if (configuration[method])
+                configuration[method] = function ()
+                {
+                    window[method].apply(null, arguments);
+                }
+        });
+
+        configuration.element = target;
+        configuration.source = RunKit.sourceFromElement(target);
+        configuration.clearParentContents = true;
+        var notebook = RunKit.createNotebook(configuration);
+        </script></div></code></div></div></section><section class="css-k008qs"><div class="css-17bai9i"><div class="css-1deafrq"><h2>vm.createContext([sandbox[, options]])</h2><span></span><ul><li><code class="inline">sandbox</code> {Object}</li><li><code class="inline">options</code> {Object}<ul><li><code class="inline">name</code> {string} Human-readable name of the newly created context.
+<strong>Default:</strong> <code class="inline">&#x27;VM Context i&#x27;</code>, where <code class="inline">i</code> is an ascending numerical index of
+the created context.</li><li><code class="inline">origin</code> {string} <a href="https://developer.mozilla.org/en-US/docs/Glossary/Origin">Origin</a> corresponding to the newly created
+context for display purposes. The origin should be formatted like a URL,
+but with only the scheme, host, and port (if necessary), like the value of
+the <a href="url.html#url_url_origin"><code class="inline">url.origin</code></a> property of a <a href="url.html#url_class_url"><code class="inline">URL</code></a> object. Most notably, this
+string should omit the trailing slash, as that denotes a path.
+<strong>Default:</strong> <code class="inline">&#x27;&#x27;</code>.</li><li><code class="inline">codeGeneration</code> {Object}<ul><li><code class="inline">strings</code> {boolean} If set to false any calls to <code class="inline">eval</code> or function
+constructors (<code class="inline">Function</code>, <code class="inline">GeneratorFunction</code>, etc) will throw an
+<code class="inline">EvalError</code>. <strong>Default:</strong> <code class="inline">true</code>.</li><li><code class="inline">wasm</code> {boolean} If set to false any attempt to compile a WebAssembly
+module will throw a <code class="inline">WebAssembly.CompileError</code>. <strong>Default:</strong> <code class="inline">true</code>.</li></ul></li></ul></li></ul><p>If given a <code class="inline">sandbox</code> object, the <code class="inline">vm.createContext()</code> method will <a href="#vm_what_does_it_mean_to_contextify_an_object">prepare
+that sandbox</a> so that it can be used in calls to
+<a href="#vm_vm_runincontext_code_contextifiedsandbox_options"><code class="inline">vm.runInContext()</code></a> or <a href="#vm_script_runincontext_contextifiedsandbox_options"><code class="inline">script.runInContext()</code></a>. Inside such scripts,
+the <code class="inline">sandbox</code> object will be the global object, retaining all of its existing
+properties but also having the built-in objects and functions any standard
+<a href="https://es5.github.io/#x15.1">global object</a> has. Outside of scripts run by the vm module, global variables
+will remain unchanged.</p><p>If <code class="inline">sandbox</code> is omitted (or passed explicitly as <code class="inline">undefined</code>), a new, empty
+<a href="#vm_what_does_it_mean_to_contextify_an_object">contextified</a> sandbox object will be returned.</p><p>The <code class="inline">vm.createContext()</code> method is primarily useful for creating a single
+sandbox that can be used to run multiple scripts. For instance, if emulating a
+web browser, the method can be used to create a single sandbox representing a
+window&#x27;s global object, then run all <code class="inline">&lt;script&gt;</code> tags together within the context
+of that sandbox.</p><p>The provided <code class="inline">name</code> and <code class="inline">origin</code> of the context are made visible through the
+Inspector API.</p></div></div><div class="css-lmvmh4"><div class="css-rpwxhi"><code><div><div class="cm-s-runkit-light"><div class="CodeMirror CodeMirror-lines theme-border-color theme-border-radius css-1jscp06"><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div><span class="cm-keyword">const</span><span style="white-space:pre"> </span><span class="cm-def">util</span><span style="white-space:pre"> </span><span class="cm-operator">=</span><span style="white-space:pre"> </span><span class="cm-variable">require</span><span style="white-space:pre">(</span><span class="cm-string">&#x27;util&#x27;</span><span style="white-space:pre">)</span><span style="white-space:pre">;</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span class="cm-keyword">const</span><span style="white-space:pre"> </span><span class="cm-def">vm</span><span style="white-space:pre"> </span><span class="cm-operator">=</span><span style="white-space:pre"> </span><span class="cm-variable">require</span><span style="white-space:pre">(</span><span class="cm-string">&#x27;vm&#x27;</span><span style="white-space:pre">)</span><span style="white-space:pre">;</span></div><div class="empty"><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+</div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span class="cm-variable">global</span><span style="white-space:pre">.</span><span class="cm-property">globalVar</span><span style="white-space:pre"> </span><span class="cm-operator">=</span><span style="white-space:pre"> </span><span class="cm-number">3</span><span style="white-space:pre">;</span></div><div class="empty"><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+</div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span class="cm-keyword">const</span><span style="white-space:pre"> </span><span class="cm-def">sandbox</span><span style="white-space:pre"> </span><span class="cm-operator">=</span><span style="white-space:pre"> </span><span style="white-space:pre">{</span><span style="white-space:pre"> </span><span class="cm-property">globalVar</span><span style="white-space:pre">:</span><span style="white-space:pre"> </span><span class="cm-number">1</span><span style="white-space:pre"> </span><span style="white-space:pre">}</span><span style="white-space:pre">;</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span class="cm-variable">vm</span><span style="white-space:pre">.</span><span class="cm-property">createContext</span><span style="white-space:pre">(</span><span class="cm-variable">sandbox</span><span style="white-space:pre">)</span><span style="white-space:pre">;</span></div><div class="empty"><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+</div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span class="cm-variable">vm</span><span style="white-space:pre">.</span><span class="cm-property">runInContext</span><span style="white-space:pre">(</span><span class="cm-string">&#x27;globalVar *= 2;&#x27;</span><span style="white-space:pre">,</span><span style="white-space:pre"> </span><span class="cm-variable">sandbox</span><span style="white-space:pre">)</span><span style="white-space:pre">;</span></div><div class="empty"><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+</div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span class="cm-variable">console</span><span style="white-space:pre">.</span><span class="cm-property">log</span><span style="white-space:pre">(</span><span class="cm-variable">util</span><span style="white-space:pre">.</span><span class="cm-property">inspect</span><span style="white-space:pre">(</span><span class="cm-variable">sandbox</span><span style="white-space:pre">)</span><span style="white-space:pre">)</span><span style="white-space:pre">;</span><span style="white-space:pre"> </span><span class="cm-comment">// { globalVar: 2 }</span></div><div class="empty"><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+</div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span class="cm-variable">console</span><span style="white-space:pre">.</span><span class="cm-property">log</span><span style="white-space:pre">(</span><span class="cm-variable">util</span><span style="white-space:pre">.</span><span class="cm-property">inspect</span><span style="white-space:pre">(</span><span class="cm-variable">globalVar</span><span style="white-space:pre">)</span><span style="white-space:pre">)</span><span style="white-space:pre">;</span><span style="white-space:pre"> </span><span class="cm-comment">// 3</span></div></div></div><script>
+        var tag = document.currentScript || (function (scripts)
+        {
+            return scripts[scripts.length - 1];
+        })(document.getElementsByTagName("script"));
+        var target = tag.previousSibling;
+        var configuration = {"getShareableURL":false,"evaluateOnLoad":false};
+
+        ["getShareableURL", "onLoad", "evaluateOnLoad"].map(function (method)
+        {
+            if (configuration[method])
+                configuration[method] = function ()
+                {
+                    window[method].apply(null, arguments);
+                }
+        });
+
+        configuration.element = target;
+        configuration.source = RunKit.sourceFromElement(target);
+        configuration.clearParentContents = true;
+        var notebook = RunKit.createNotebook(configuration);
+        </script></div></code></div></div></section><section class="css-k008qs"><div class="css-17bai9i"><div class="css-1deafrq"><h2>vm.isContext(sandbox)</h2><span></span><ul><li><code class="inline">sandbox</code> {Object}</li></ul><p>Returns <code class="inline">true</code> if the given <code class="inline">sandbox</code> object has been <a href="#vm_what_does_it_mean_to_contextify_an_object">contextified</a> using
+<a href="#vm_vm_createcontext_sandbox_options"><code class="inline">vm.createContext()</code></a>.</p></div></div><div class="css-lmvmh4"><div class="css-rpwxhi"></div></div></section><section class="css-k008qs"><div class="css-17bai9i"><div class="css-1deafrq"><h2>vm.runInContext(code, contextifiedSandbox[, options])</h2><span></span><ul><li><code class="inline">code</code> {string} The JavaScript code to compile and run.</li><li><code class="inline">contextifiedSandbox</code> {Object} The <a href="#vm_what_does_it_mean_to_contextify_an_object">contextified</a> object that will be used
+as the <code class="inline">global</code> when the <code class="inline">code</code> is compiled and run.</li><li><code class="inline">options</code><ul><li><code class="inline">filename</code> {string} Specifies the filename used in stack traces produced
+by this script.</li><li><code class="inline">lineOffset</code> {number} Specifies the line number offset that is displayed
+in stack traces produced by this script.</li><li><code class="inline">columnOffset</code> {number} Specifies the column number offset that is displayed
+in stack traces produced by this script.</li><li><code class="inline">displayErrors</code> {boolean} When <code class="inline">true</code>, if an <a href="errors.html#errors_class_error"><code class="inline">Error</code></a> error occurs
+while compiling the <code class="inline">code</code>, the line of code causing the error is attached
+to the stack trace.</li><li><code class="inline">timeout</code> {number} Specifies the number of milliseconds to execute <code class="inline">code</code>
+before terminating execution. If execution is terminated, an <a href="errors.html#errors_class_error"><code class="inline">Error</code></a>
+will be thrown.</li></ul></li></ul><p>The <code class="inline">vm.runInContext()</code> method compiles <code class="inline">code</code>, runs it within the context of
+the <code class="inline">contextifiedSandbox</code>, then returns the result. Running code does not have
+access to the local scope. The <code class="inline">contextifiedSandbox</code> object <em>must</em> have been
+previously <a href="#vm_what_does_it_mean_to_contextify_an_object">contextified</a> using the <a href="#vm_vm_createcontext_sandbox_options"><code class="inline">vm.createContext()</code></a> method.</p><p>The following example compiles and executes different scripts using a single
+<a href="#vm_what_does_it_mean_to_contextify_an_object">contextified</a> object:</p></div></div><div class="css-lmvmh4"><div class="css-rpwxhi"><code><div><div class="cm-s-runkit-light"><div class="CodeMirror CodeMirror-lines theme-border-color theme-border-radius css-1jscp06"><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div><span class="cm-keyword">const</span><span style="white-space:pre"> </span><span class="cm-def">util</span><span style="white-space:pre"> </span><span class="cm-operator">=</span><span style="white-space:pre"> </span><span class="cm-variable">require</span><span style="white-space:pre">(</span><span class="cm-string">&#x27;util&#x27;</span><span style="white-space:pre">)</span><span style="white-space:pre">;</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span class="cm-keyword">const</span><span style="white-space:pre"> </span><span class="cm-def">vm</span><span style="white-space:pre"> </span><span class="cm-operator">=</span><span style="white-space:pre"> </span><span class="cm-variable">require</span><span style="white-space:pre">(</span><span class="cm-string">&#x27;vm&#x27;</span><span style="white-space:pre">)</span><span style="white-space:pre">;</span></div><div class="empty"><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+</div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span class="cm-keyword">const</span><span style="white-space:pre"> </span><span class="cm-def">sandbox</span><span style="white-space:pre"> </span><span class="cm-operator">=</span><span style="white-space:pre"> </span><span style="white-space:pre">{</span><span style="white-space:pre"> </span><span class="cm-property">globalVar</span><span style="white-space:pre">:</span><span style="white-space:pre"> </span><span class="cm-number">1</span><span style="white-space:pre"> </span><span style="white-space:pre">}</span><span style="white-space:pre">;</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span class="cm-variable">vm</span><span style="white-space:pre">.</span><span class="cm-property">createContext</span><span style="white-space:pre">(</span><span class="cm-variable">sandbox</span><span style="white-space:pre">)</span><span style="white-space:pre">;</span></div><div class="empty"><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+</div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span class="cm-keyword">for</span><span style="white-space:pre"> </span><span style="white-space:pre">(</span><span class="cm-keyword">let</span><span style="white-space:pre"> </span><span class="cm-def">i</span><span style="white-space:pre"> </span><span class="cm-operator">=</span><span style="white-space:pre"> </span><span class="cm-number">0</span><span style="white-space:pre">;</span><span style="white-space:pre"> </span><span class="cm-variable">i</span><span style="white-space:pre"> </span><span class="cm-operator">&lt;</span><span style="white-space:pre"> </span><span class="cm-number">10</span><span style="white-space:pre">;</span><span style="white-space:pre"> </span><span class="cm-operator">++</span><span class="cm-variable">i</span><span style="white-space:pre">)</span><span style="white-space:pre"> </span><span style="white-space:pre">{</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">  </span><span class="cm-variable">vm</span><span style="white-space:pre">.</span><span class="cm-property">runInContext</span><span style="white-space:pre">(</span><span class="cm-string">&#x27;globalVar *= 2;&#x27;</span><span style="white-space:pre">,</span><span style="white-space:pre"> </span><span class="cm-variable">sandbox</span><span style="white-space:pre">)</span><span style="white-space:pre">;</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">}</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span class="cm-variable">console</span><span style="white-space:pre">.</span><span class="cm-property">log</span><span style="white-space:pre">(</span><span class="cm-variable">util</span><span style="white-space:pre">.</span><span class="cm-property">inspect</span><span style="white-space:pre">(</span><span class="cm-variable">sandbox</span><span style="white-space:pre">)</span><span style="white-space:pre">)</span><span style="white-space:pre">;</span></div><div class="empty"><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+</div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span class="cm-comment">// { globalVar: 1024 }</span></div></div></div><script>
+        var tag = document.currentScript || (function (scripts)
+        {
+            return scripts[scripts.length - 1];
+        })(document.getElementsByTagName("script"));
+        var target = tag.previousSibling;
+        var configuration = {"getShareableURL":false,"evaluateOnLoad":false};
+
+        ["getShareableURL", "onLoad", "evaluateOnLoad"].map(function (method)
+        {
+            if (configuration[method])
+                configuration[method] = function ()
+                {
+                    window[method].apply(null, arguments);
+                }
+        });
+
+        configuration.element = target;
+        configuration.source = RunKit.sourceFromElement(target);
+        configuration.clearParentContents = true;
+        var notebook = RunKit.createNotebook(configuration);
+        </script></div></code></div></div></section><section class="css-k008qs"><div class="css-17bai9i"><div class="css-1deafrq"><h2>vm.runInNewContext(code[, sandbox][, options])</h2><span></span><ul><li><code class="inline">code</code> {string} The JavaScript code to compile and run.</li><li><code class="inline">sandbox</code> {Object} An object that will be <a href="#vm_what_does_it_mean_to_contextify_an_object">contextified</a>. If <code class="inline">undefined</code>, a
+new object will be created.</li><li><code class="inline">options</code><ul><li><code class="inline">filename</code> {string} Specifies the filename used in stack traces produced
+by this script.</li><li><code class="inline">lineOffset</code> {number} Specifies the line number offset that is displayed
+in stack traces produced by this script.</li><li><code class="inline">columnOffset</code> {number} Specifies the column number offset that is displayed
+in stack traces produced by this script.</li><li><code class="inline">displayErrors</code> {boolean} When <code class="inline">true</code>, if an <a href="errors.html#errors_class_error"><code class="inline">Error</code></a> error occurs
+while compiling the <code class="inline">code</code>, the line of code causing the error is attached
+to the stack trace.</li><li><code class="inline">timeout</code> {number} Specifies the number of milliseconds to execute <code class="inline">code</code>
+before terminating execution. If execution is terminated, an <a href="errors.html#errors_class_error"><code class="inline">Error</code></a>
+will be thrown.</li><li><code class="inline">contextName</code> {string} Human-readable name of the newly created context.
+<strong>Default:</strong> <code class="inline">&#x27;VM Context i&#x27;</code>, where <code class="inline">i</code> is an ascending numerical index of
+the created context.</li><li><code class="inline">contextOrigin</code> {string} <a href="https://developer.mozilla.org/en-US/docs/Glossary/Origin">Origin</a> corresponding to the newly
+created context for display purposes. The origin should be formatted like a
+URL, but with only the scheme, host, and port (if necessary), like the
+value of the <a href="url.html#url_url_origin"><code class="inline">url.origin</code></a> property of a <a href="url.html#url_class_url"><code class="inline">URL</code></a> object. Most notably,
+this string should omit the trailing slash, as that denotes a path.
+<strong>Default:</strong> <code class="inline">&#x27;&#x27;</code>.</li></ul></li></ul><p>The <code class="inline">vm.runInNewContext()</code> first contextifies the given <code class="inline">sandbox</code> object (or
+creates a new <code class="inline">sandbox</code> if passed as <code class="inline">undefined</code>), compiles the <code class="inline">code</code>, runs it
+within the context of the created context, then returns the result. Running code
+does not have access to the local scope.</p><p>The following example compiles and executes code that increments a global
+variable and sets a new one. These globals are contained in the <code class="inline">sandbox</code>.</p></div></div><div class="css-lmvmh4"><div class="css-rpwxhi"><code><div><div class="cm-s-runkit-light"><div class="CodeMirror CodeMirror-lines theme-border-color theme-border-radius css-1jscp06"><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div><span class="cm-keyword">const</span><span style="white-space:pre"> </span><span class="cm-def">util</span><span style="white-space:pre"> </span><span class="cm-operator">=</span><span style="white-space:pre"> </span><span class="cm-variable">require</span><span style="white-space:pre">(</span><span class="cm-string">&#x27;util&#x27;</span><span style="white-space:pre">)</span><span style="white-space:pre">;</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span class="cm-keyword">const</span><span style="white-space:pre"> </span><span class="cm-def">vm</span><span style="white-space:pre"> </span><span class="cm-operator">=</span><span style="white-space:pre"> </span><span class="cm-variable">require</span><span style="white-space:pre">(</span><span class="cm-string">&#x27;vm&#x27;</span><span style="white-space:pre">)</span><span style="white-space:pre">;</span></div><div class="empty"><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+</div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span class="cm-keyword">const</span><span style="white-space:pre"> </span><span class="cm-def">sandbox</span><span style="white-space:pre"> </span><span class="cm-operator">=</span><span style="white-space:pre"> </span><span style="white-space:pre">{</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">  </span><span class="cm-property">animal</span><span style="white-space:pre">:</span><span style="white-space:pre"> </span><span class="cm-string">&#x27;cat&#x27;</span><span style="white-space:pre">,</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">  </span><span class="cm-property">count</span><span style="white-space:pre">:</span><span style="white-space:pre"> </span><span class="cm-number">2</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">}</span><span style="white-space:pre">;</span></div><div class="empty"><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+</div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span class="cm-variable">vm</span><span style="white-space:pre">.</span><span class="cm-property">runInNewContext</span><span style="white-space:pre">(</span><span class="cm-string">&#x27;count += 1; name = &quot;kitty&quot;&#x27;</span><span style="white-space:pre">,</span><span style="white-space:pre"> </span><span class="cm-variable">sandbox</span><span style="white-space:pre">)</span><span style="white-space:pre">;</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span class="cm-variable">console</span><span style="white-space:pre">.</span><span class="cm-property">log</span><span style="white-space:pre">(</span><span class="cm-variable">util</span><span style="white-space:pre">.</span><span class="cm-property">inspect</span><span style="white-space:pre">(</span><span class="cm-variable">sandbox</span><span style="white-space:pre">)</span><span style="white-space:pre">)</span><span style="white-space:pre">;</span></div><div class="empty"><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+</div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span class="cm-comment">// { animal: &#x27;cat&#x27;, count: 3, name: &#x27;kitty&#x27; }</span></div></div></div><script>
+        var tag = document.currentScript || (function (scripts)
+        {
+            return scripts[scripts.length - 1];
+        })(document.getElementsByTagName("script"));
+        var target = tag.previousSibling;
+        var configuration = {"getShareableURL":false,"evaluateOnLoad":false};
+
+        ["getShareableURL", "onLoad", "evaluateOnLoad"].map(function (method)
+        {
+            if (configuration[method])
+                configuration[method] = function ()
+                {
+                    window[method].apply(null, arguments);
+                }
+        });
+
+        configuration.element = target;
+        configuration.source = RunKit.sourceFromElement(target);
+        configuration.clearParentContents = true;
+        var notebook = RunKit.createNotebook(configuration);
+        </script></div></code></div></div></section><section class="css-k008qs"><div class="css-17bai9i"><div class="css-1deafrq"><h2>vm.runInThisContext(code[, options])</h2><span></span><ul><li><code class="inline">code</code> {string} The JavaScript code to compile and run.</li><li><code class="inline">options</code><ul><li><code class="inline">filename</code> {string} Specifies the filename used in stack traces produced
+by this script.</li><li><code class="inline">lineOffset</code> {number} Specifies the line number offset that is displayed
+in stack traces produced by this script.</li><li><code class="inline">columnOffset</code> {number} Specifies the column number offset that is displayed
+in stack traces produced by this script.</li><li><code class="inline">displayErrors</code> {boolean} When <code class="inline">true</code>, if an <a href="errors.html#errors_class_error"><code class="inline">Error</code></a> error occurs
+while compiling the <code class="inline">code</code>, the line of code causing the error is attached
+to the stack trace.</li><li><code class="inline">timeout</code> {number} Specifies the number of milliseconds to execute <code class="inline">code</code>
+before terminating execution. If execution is terminated, an <a href="errors.html#errors_class_error"><code class="inline">Error</code></a>
+will be thrown.</li></ul></li></ul><p><code class="inline">vm.runInThisContext()</code> compiles <code class="inline">code</code>, runs it within the context of the
+current <code class="inline">global</code> and returns the result. Running code does not have access to
+local scope, but does have access to the current <code class="inline">global</code> object.</p><p>The following example illustrates using both <code class="inline">vm.runInThisContext()</code> and
+the JavaScript <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval"><code class="inline">eval()</code></a> function to run the same code:</p><p>Because <code class="inline">vm.runInThisContext()</code> does not have access to the local scope,
+<code class="inline">localVar</code> is unchanged. In contrast, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval"><code class="inline">eval()</code></a> <em>does</em> have access to the
+local scope, so the value <code class="inline">localVar</code> is changed. In this way
+<code class="inline">vm.runInThisContext()</code> is much like an <a href="https://es5.github.io/#x10.4.2">indirect <code class="inline">eval()</code> call</a>, e.g.
+<code class="inline">(0,eval)(&#x27;code&#x27;)</code>.</p></div></div><div class="css-lmvmh4"><div class="css-rpwxhi"><code><div><div class="cm-s-runkit-light"><div class="CodeMirror CodeMirror-lines theme-border-color theme-border-radius css-1jscp06"><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div><span class="cm-keyword">const</span><span style="white-space:pre"> </span><span class="cm-def">vm</span><span style="white-space:pre"> </span><span class="cm-operator">=</span><span style="white-space:pre"> </span><span class="cm-variable">require</span><span style="white-space:pre">(</span><span class="cm-string">&#x27;vm&#x27;</span><span style="white-space:pre">)</span><span style="white-space:pre">;</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span class="cm-keyword">let</span><span style="white-space:pre"> </span><span class="cm-def">localVar</span><span style="white-space:pre"> </span><span class="cm-operator">=</span><span style="white-space:pre"> </span><span class="cm-string">&#x27;initial value&#x27;</span><span style="white-space:pre">;</span></div><div class="empty"><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+</div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span class="cm-keyword">const</span><span style="white-space:pre"> </span><span class="cm-def">vmResult</span><span style="white-space:pre"> </span><span class="cm-operator">=</span><span style="white-space:pre"> </span><span class="cm-variable">vm</span><span style="white-space:pre">.</span><span class="cm-property">runInThisContext</span><span style="white-space:pre">(</span><span class="cm-string">&#x27;localVar = &quot;vm&quot;;&#x27;</span><span style="white-space:pre">)</span><span style="white-space:pre">;</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span class="cm-variable">console</span><span style="white-space:pre">.</span><span class="cm-property">log</span><span style="white-space:pre">(</span><span class="cm-string">&#x27;vmResult:&#x27;</span><span style="white-space:pre">,</span><span style="white-space:pre"> </span><span class="cm-variable">vmResult</span><span style="white-space:pre">)</span><span style="white-space:pre">;</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span class="cm-variable">console</span><span style="white-space:pre">.</span><span class="cm-property">log</span><span style="white-space:pre">(</span><span class="cm-string">&#x27;localVar:&#x27;</span><span style="white-space:pre">,</span><span style="white-space:pre"> </span><span class="cm-variable">localVar</span><span style="white-space:pre">)</span><span style="white-space:pre">;</span></div><div class="empty"><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+</div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span class="cm-keyword">const</span><span style="white-space:pre"> </span><span class="cm-def">evalResult</span><span style="white-space:pre"> </span><span class="cm-operator">=</span><span style="white-space:pre"> </span><span class="cm-variable">eval</span><span style="white-space:pre">(</span><span class="cm-string">&#x27;localVar = &quot;eval&quot;;&#x27;</span><span style="white-space:pre">)</span><span style="white-space:pre">;</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span class="cm-variable">console</span><span style="white-space:pre">.</span><span class="cm-property">log</span><span style="white-space:pre">(</span><span class="cm-string">&#x27;evalResult:&#x27;</span><span style="white-space:pre">,</span><span style="white-space:pre"> </span><span class="cm-variable">evalResult</span><span style="white-space:pre">)</span><span style="white-space:pre">;</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span class="cm-variable">console</span><span style="white-space:pre">.</span><span class="cm-property">log</span><span style="white-space:pre">(</span><span class="cm-string">&#x27;localVar:&#x27;</span><span style="white-space:pre">,</span><span style="white-space:pre"> </span><span class="cm-variable">localVar</span><span style="white-space:pre">)</span><span style="white-space:pre">;</span></div><div class="empty"><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+</div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span class="cm-comment">// vmResult: &#x27;vm&#x27;, localVar: &#x27;initial value&#x27;</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span class="cm-comment">// evalResult: &#x27;eval&#x27;, localVar: &#x27;eval&#x27;</span></div></div></div><script>
+        var tag = document.currentScript || (function (scripts)
+        {
+            return scripts[scripts.length - 1];
+        })(document.getElementsByTagName("script"));
+        var target = tag.previousSibling;
+        var configuration = {"getShareableURL":false,"evaluateOnLoad":false};
+
+        ["getShareableURL", "onLoad", "evaluateOnLoad"].map(function (method)
+        {
+            if (configuration[method])
+                configuration[method] = function ()
+                {
+                    window[method].apply(null, arguments);
+                }
+        });
+
+        configuration.element = target;
+        configuration.source = RunKit.sourceFromElement(target);
+        configuration.clearParentContents = true;
+        var notebook = RunKit.createNotebook(configuration);
+        </script></div></code></div></div></section><section class="css-k008qs"><div class="css-17bai9i"><div class="css-1deafrq"><h2>Example: Running an HTTP Server within a VM</h2><span></span><p>When using either <a href="#vm_script_runinthiscontext_options"><code class="inline">script.runInThisContext()</code></a> or
+<a href="#vm_vm_runinthiscontext_code_options"><code class="inline">vm.runInThisContext()</code></a>, the code is executed within the current V8 global
+context. The code passed to this VM context will have its own isolated scope.</p><p>In order to run a simple web server using the <code class="inline">http</code> module the code passed to
+the context must either call <code class="inline">require(&#x27;http&#x27;)</code> on its own, or have a reference
+to the <code class="inline">http</code> module passed to it. For instance:</p><p>The <code class="inline">require()</code> in the above case shares the state with the context it is
+passed from. This may introduce risks when untrusted code is executed, e.g.
+altering objects in the context in unwanted ways.</p></div></div><div class="css-lmvmh4"><div class="css-rpwxhi"><code><div><div class="cm-s-runkit-light"><div class="CodeMirror CodeMirror-lines theme-border-color theme-border-radius css-1jscp06"><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div><span class="cm-string">&#x27;use strict&#x27;</span><span style="white-space:pre">;</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span class="cm-keyword">const</span><span style="white-space:pre"> </span><span class="cm-def">vm</span><span style="white-space:pre"> </span><span class="cm-operator">=</span><span style="white-space:pre"> </span><span class="cm-variable">require</span><span style="white-space:pre">(</span><span class="cm-string">&#x27;vm&#x27;</span><span style="white-space:pre">)</span><span style="white-space:pre">;</span></div><div class="empty"><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+</div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span class="cm-keyword">const</span><span style="white-space:pre"> </span><span class="cm-def">code</span><span style="white-space:pre"> </span><span class="cm-operator">=</span><span style="white-space:pre"> </span><span class="cm-string-2">`</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span class="cm-string-2">((require) =&gt; {</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">  </span><span class="cm-string-2">const http = require(&#x27;http&#x27;);</span></div><div class="empty"><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+</div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">  </span><span class="cm-string-2">http.createServer((request, response) =&gt; {</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">    </span><span class="cm-string-2">response.writeHead(200, { &#x27;Content-Type&#x27;: &#x27;text/plain&#x27; });</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">    </span><span class="cm-string-2">response.end(&#x27;Hello World\\n&#x27;);</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">  </span><span class="cm-string-2">}).listen(8124);</span></div><div class="empty"><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+</div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">  </span><span class="cm-string-2">console.log(&#x27;Server running at http://127.0.0.1:8124/&#x27;);</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span class="cm-string-2">})`</span><span style="white-space:pre">;</span></div><div class="empty"><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+</div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span class="cm-variable">vm</span><span style="white-space:pre">.</span><span class="cm-property">runInThisContext</span><span style="white-space:pre">(</span><span class="cm-variable">code</span><span style="white-space:pre">)</span><span style="white-space:pre">(</span><span class="cm-variable">require</span><span style="white-space:pre">)</span><span style="white-space:pre">;</span></div></div></div><script>
+        var tag = document.currentScript || (function (scripts)
+        {
+            return scripts[scripts.length - 1];
+        })(document.getElementsByTagName("script"));
+        var target = tag.previousSibling;
+        var configuration = {"getShareableURL":false,"evaluateOnLoad":false};
+
+        ["getShareableURL", "onLoad", "evaluateOnLoad"].map(function (method)
+        {
+            if (configuration[method])
+                configuration[method] = function ()
+                {
+                    window[method].apply(null, arguments);
+                }
+        });
+
+        configuration.element = target;
+        configuration.source = RunKit.sourceFromElement(target);
+        configuration.clearParentContents = true;
+        var notebook = RunKit.createNotebook(configuration);
+        </script></div></code></div></div></section><section class="css-k008qs"><div class="css-17bai9i"><div class="css-1deafrq"><h2>What does it mean to &quot;contextify&quot; an object?</h2><span></span><p>All JavaScript executed within Node.js runs within the scope of a &quot;context&quot;.
+According to the <a href="https://github.com/v8/v8/wiki/Embedder&#x27;s%20Guide#contexts">V8 Embedder&#x27;s Guide</a>:</p><blockquote><p>In V8, a context is an execution environment that allows separate, unrelated,
+JavaScript applications to run in a single instance of V8. You must explicitly
+specify the context in which you want any JavaScript code to be run.</p></blockquote><p>When the method <code class="inline">vm.createContext()</code> is called, the <code class="inline">sandbox</code> object that is
+passed in (or a newly created object if <code class="inline">sandbox</code> is <code class="inline">undefined</code>) is associated
+internally with a new instance of a V8 Context. This V8 Context provides the
+<code class="inline">code</code> run using the <code class="inline">vm</code> module&#x27;s methods with an isolated global environment
+within which it can operate. The process of creating the V8 Context and
+associating it with the <code class="inline">sandbox</code> object is what this document refers to as
+&quot;contextifying&quot; the <code class="inline">sandbox</code>.</p></div></div><div class="css-lmvmh4"><div class="css-rpwxhi"></div></div></section></div></main></body><script src="/assets/common.js"></script></body></html>

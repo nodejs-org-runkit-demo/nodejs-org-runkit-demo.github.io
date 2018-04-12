@@ -1,0 +1,245 @@
+<html><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/><title>undefined | Node.js</title><link rel="stylesheet" href="https://themes.runkitcdn.com/runkit-light.css"/><link href="/assets/css/bootstrap-reboot.min.css" rel="stylesheet"/><link href="/assets/fontawesome/css/fontawesome-all.min.css" rel="stylesheet"/><link rel="canonical"/><style>.css-1j604c7 code.inline{color:rgba(164,115,221,1.0);background:rgba(246,247,252,1.0);font-family:Menlo,Monaco,Consolas,"Courier New",monospace;border-radius:5pt;font-size:0.77em;padding:0.33em .55em;}.css-1j604c7 h2 > code.inline{color:inherit;background:inherit;font-family:inherit;border-radius:0;font-size:inherit;padding:0;}.css-1j604c7 p{font-size:16px;line-height:27.2px;margin-bottom:1.2em;padding:10px 0px 1px 0px;}.css-1j604c7 h1{margin-top:2em;font-weight:bolder;font-size:1.2em;}.css-1j604c7 h2{margin-top:1em;font-size:1.2em;font-weight:bolder;margin:30px 0 15px 0;}.css-1uvztjx{font-size:16px;padding:0;margin:0;}.css-1upbv8z{width:235px;position:fixed;height:100vh;overflow:scroll;}.css-rglxlg{margin-left:235px;width:calc(100vw - 235px);}.css-k008qs{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;}.css-17bai9i{-webkit-flex:1 0 0;-ms-flex:1 0 0;flex:1 0 0;max-width:50%;}.css-1deafrq{padding:0px 50px 50px 50px;display:block;position:-webkit-sticky;position:sticky;top:40px;}.css-lmvmh4{-webkit-flex:1 0 0;-ms-flex:1 0 0;flex:1 0 0;max-width:50%;border-left:1px solid rgb(221,221,221);background:#f5f5f5;}.css-rpwxhi{padding:40px 50px 50px 50px;display:block;position:-webkit-sticky;position:sticky;top:40px;}.css-16v83fq{background:rgba(6,16,65,1.0);min-height:100%;color:rgba(255,255,255,0.7);}.css-16v83fq ul{background:rgba(6,16,65,1.0);list-style-type:none;padding:0;margin:0;}.css-16v83fq li{margin:0;padding:.5em 0 .5em 2em;}.css-1jscp06{counter-reset:li;border-width:1px;border-style:solid;}.css-1jscp06 > div{position:relative;margin:0;}.css-1jscp06 > div > .CodeMirror-gutter-wrapper{position:absolute;left:-36px;}.css-1jscp06 > div.empty:after{content:"\00a0";}.css-1jscp06 span.CodeMirror-linenumber:before{content:counter(li) " ";counter-increment:li;position:absolute;top:0;box-sizing:border-box;width:36px;text-align:right;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;}</style></head><body><body class="css-1uvztjx"><script src="https://embed.runkit-demo.com"></script><div class="css-1upbv8z"><nav class="css-16v83fq"><ul><li><div style="width:1px;height:20px"></div></li><li>Assertion Testing</li><li>Async Hooks</li><li>Buffer</li><li>C++ Addons</li><li>C/C++ Addons - N-API</li><li>Child Processes</li><li>Cluster</li><li>Command Line Options</li><li>Console</li><li>Crypto</li><li>Debugger</li><li>Deprecated APIs</li><li>DNS</li><li>Domain</li><li>ECMAScript Modules</li><li>Errors</li><li>Events</li><li>File System</li><li>Globals</li><li>HTTP</li><li>HTTP/2</li><li>HTTPS</li><li>Inspector</li><li>Internationalization</li><li>Modules</li><li>Net</li><li>OS</li><li>Path</li><li>Performance Hooks</li><li>Process</li><li>Punycode</li><li>Query Strings</li><li>Readline</li><li>REPL</li><li>Stream</li><li>String Decoder</li><li>Timers</li><li>TLS/SSL</li><li>Tracing</li><li>TTY</li><li>UDP/Datagram</li><li>URL</li><li>Utilities</li><li>V8</li><li>VM</li><li>ZLIB</li></ul></nav></div><main class="css-rglxlg"><div class="css-1j604c7 margins fluid-content"><section class="css-k008qs"><div class="css-17bai9i"><div class="css-1deafrq"><h1>Executing JavaScript</h1><span></span><p>You can access this module with:</p><p>JavaScript code can be compiled and run immediately or compiled, saved, and run later.</p></div></div><div class="css-lmvmh4"><div class="css-rpwxhi"><code><div><div class="cm-s-runkit-light"><div class="CodeMirror CodeMirror-lines theme-border-color theme-border-radius css-1jscp06"><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div><span style="white-space:pre">    </span><span class="cm-keyword">var</span><span style="white-space:pre"> </span><span class="cm-def">vm</span><span style="white-space:pre"> </span><span class="cm-operator">=</span><span style="white-space:pre"> </span><span class="cm-variable">require</span><span style="white-space:pre">(</span><span class="cm-string">&#x27;vm&#x27;</span><span style="white-space:pre">)</span><span style="white-space:pre">;</span></div></div></div><script>
+        var tag = document.currentScript || (function (scripts)
+        {
+            return scripts[scripts.length - 1];
+        })(document.getElementsByTagName("script"));
+        var target = tag.previousSibling;
+        var configuration = {"getShareableURL":false,"evaluateOnLoad":false};
+
+        ["getShareableURL", "onLoad", "evaluateOnLoad"].map(function (method)
+        {
+            if (configuration[method])
+                configuration[method] = function ()
+                {
+                    window[method].apply(null, arguments);
+                }
+        });
+
+        configuration.element = target;
+        configuration.source = RunKit.sourceFromElement(target);
+        configuration.clearParentContents = true;
+        var notebook = RunKit.createNotebook(configuration);
+        </script></div></code></div></div></section><section class="css-k008qs"><div class="css-17bai9i"><div class="css-1deafrq"><h2>Caveats</h2><span></span><p>The <code class="inline">vm</code> module has many known issues and edge cases. If you run into
+issues or unexpected behavior, please consult
+<a href="https://github.com/joyent/node/issues/search?q=vm">the open issues on GitHub</a>.
+Some of the biggest problems are described below.</p></div></div><div class="css-lmvmh4"><div class="css-rpwxhi"></div></div></section><section class="css-k008qs"><div class="css-17bai9i"><div class="css-1deafrq"><h3>Sandboxes</h3><span></span><p>The <code class="inline">sandbox</code> argument to <code class="inline">vm.runInNewContext</code> and <code class="inline">vm.createContext</code>,
+along with the <code class="inline">initSandbox</code> argument to <code class="inline">vm.createContext</code>, do not
+behave as one might normally expect and their behavior varies
+between different versions of Node.</p><p>The key issue to be aware of is that V8 provides no way to directly
+control the global object used within a context. As a result, while
+properties of your <code class="inline">sandbox</code> object will be available in the context,
+any properties from the <code class="inline">prototype</code>s of the <code class="inline">sandbox</code> may not be
+available. Furthermore, the <code class="inline">this</code> expression within the global scope
+of the context evaluates to the empty object (<code class="inline">{}</code>) instead of to
+your sandbox.</p><p>Your sandbox&#x27;s properties are also not shared directly with the script.
+Instead, the properties of the sandbox are copied into the context at
+the beginning of execution, and then after execution, the properties
+are copied back out in an attempt to propagate any changes.</p></div></div><div class="css-lmvmh4"><div class="css-rpwxhi"></div></div></section><section class="css-k008qs"><div class="css-17bai9i"><div class="css-1deafrq"><h3>Globals</h3><span></span><p>Properties of the global object, like <code class="inline">Array</code> and <code class="inline">String</code>, have
+different values inside of a context. This means that common
+expressions like <code class="inline">[] instanceof Array</code> or
+<code class="inline">Object.getPrototypeOf([]) === Array.prototype</code> may not produce
+expected results when used inside of scripts evaluated via the <code class="inline">vm</code> module.</p><p>Some of these problems have known workarounds listed in the issues for
+<code class="inline">vm</code> on GitHub. for example, <code class="inline">Array.isArray</code> works around
+the example problem with <code class="inline">Array</code>.</p></div></div><div class="css-lmvmh4"><div class="css-rpwxhi"></div></div></section><section class="css-k008qs"><div class="css-17bai9i"><div class="css-1deafrq"><h2>vm.runInThisContext(code, [filename])</h2><span></span><p><code class="inline">vm.runInThisContext()</code> compiles <code class="inline">code</code>, runs it and returns the result. Running
+code does not have access to local scope. <code class="inline">filename</code> is optional, it&#x27;s used only
+in stack traces.</p><p>Example of using <code class="inline">vm.runInThisContext</code> and <code class="inline">eval</code> to run the same code:</p><p><code class="inline">vm.runInThisContext</code> does not have access to the local scope, so <code class="inline">localVar</code> is unchanged.
+<code class="inline">eval</code> does have access to the local scope, so <code class="inline">localVar</code> is changed.</p><p>In case of syntax error in <code class="inline">code</code>, <code class="inline">vm.runInThisContext</code> emits the syntax error to stderr
+and throws an exception.</p></div></div><div class="css-lmvmh4"><div class="css-rpwxhi"><code><div><div class="cm-s-runkit-light"><div class="CodeMirror CodeMirror-lines theme-border-color theme-border-radius css-1jscp06"><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div><span style="white-space:pre">    </span><span class="cm-keyword">var</span><span style="white-space:pre"> </span><span class="cm-def">localVar</span><span style="white-space:pre"> </span><span class="cm-operator">=</span><span style="white-space:pre"> </span><span class="cm-number">123</span><span style="white-space:pre">,</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">        </span><span class="cm-def">usingscript</span><span style="white-space:pre">,</span><span style="white-space:pre"> </span><span class="cm-def">evaled</span><span style="white-space:pre">,</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">        </span><span class="cm-def">vm</span><span style="white-space:pre"> </span><span class="cm-operator">=</span><span style="white-space:pre"> </span><span class="cm-variable">require</span><span style="white-space:pre">(</span><span class="cm-string">&#x27;vm&#x27;</span><span style="white-space:pre">)</span><span style="white-space:pre">;</span></div><div class="empty"><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+</div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">    </span><span class="cm-variable">usingscript</span><span style="white-space:pre"> </span><span class="cm-operator">=</span><span style="white-space:pre"> </span><span class="cm-variable">vm</span><span style="white-space:pre">.</span><span class="cm-property">runInThisContext</span><span style="white-space:pre">(</span><span class="cm-string">&#x27;localVar = 1;&#x27;</span><span style="white-space:pre">,</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">      </span><span class="cm-string">&#x27;myfile.vm&#x27;</span><span style="white-space:pre">)</span><span style="white-space:pre">;</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">    </span><span class="cm-variable">console</span><span style="white-space:pre">.</span><span class="cm-property">log</span><span style="white-space:pre">(</span><span class="cm-string">&#x27;localVar: &#x27;</span><span style="white-space:pre"> </span><span class="cm-operator">+</span><span style="white-space:pre"> </span><span class="cm-variable">localVar</span><span style="white-space:pre"> </span><span class="cm-operator">+</span><span style="white-space:pre"> </span><span class="cm-string">&#x27;, usingscript: &#x27;</span><span style="white-space:pre"> </span><span class="cm-operator">+</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">      </span><span class="cm-variable">usingscript</span><span style="white-space:pre">)</span><span style="white-space:pre">;</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">    </span><span class="cm-variable">evaled</span><span style="white-space:pre"> </span><span class="cm-operator">=</span><span style="white-space:pre"> </span><span class="cm-variable">eval</span><span style="white-space:pre">(</span><span class="cm-string">&#x27;localVar = 1;&#x27;</span><span style="white-space:pre">)</span><span style="white-space:pre">;</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">    </span><span class="cm-variable">console</span><span style="white-space:pre">.</span><span class="cm-property">log</span><span style="white-space:pre">(</span><span class="cm-string">&#x27;localVar: &#x27;</span><span style="white-space:pre"> </span><span class="cm-operator">+</span><span style="white-space:pre"> </span><span class="cm-variable">localVar</span><span style="white-space:pre"> </span><span class="cm-operator">+</span><span style="white-space:pre"> </span><span class="cm-string">&#x27;, evaled: &#x27;</span><span style="white-space:pre"> </span><span class="cm-operator">+</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">      </span><span class="cm-variable">evaled</span><span style="white-space:pre">)</span><span style="white-space:pre">;</span></div><div class="empty"><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+</div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">    </span><span class="cm-comment">// localVar: 123, usingscript: 1</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">    </span><span class="cm-comment">// localVar: 1, evaled: 1</span></div></div></div><script>
+        var tag = document.currentScript || (function (scripts)
+        {
+            return scripts[scripts.length - 1];
+        })(document.getElementsByTagName("script"));
+        var target = tag.previousSibling;
+        var configuration = {"getShareableURL":false,"evaluateOnLoad":false};
+
+        ["getShareableURL", "onLoad", "evaluateOnLoad"].map(function (method)
+        {
+            if (configuration[method])
+                configuration[method] = function ()
+                {
+                    window[method].apply(null, arguments);
+                }
+        });
+
+        configuration.element = target;
+        configuration.source = RunKit.sourceFromElement(target);
+        configuration.clearParentContents = true;
+        var notebook = RunKit.createNotebook(configuration);
+        </script></div></code></div></div></section><section class="css-k008qs"><div class="css-17bai9i"><div class="css-1deafrq"><h2>vm.runInNewContext(code, [sandbox], [filename])</h2><span></span><p><code class="inline">vm.runInNewContext</code> compiles <code class="inline">code</code>, then runs it in <code class="inline">sandbox</code> and returns the
+result. Running code does not have access to local scope. The object <code class="inline">sandbox</code>
+will be used as the global object for <code class="inline">code</code>.
+<code class="inline">sandbox</code> and <code class="inline">filename</code> are optional, <code class="inline">filename</code> is only used in stack traces.</p><p>Example: compile and execute code that increments a global variable and sets a new one.
+These globals are contained in the sandbox.</p><p>Note that running untrusted code is a tricky business requiring great care.  To prevent accidental
+global variable leakage, <code class="inline">vm.runInNewContext</code> is quite useful, but safely running untrusted code
+requires a separate process.</p><p>In case of syntax error in <code class="inline">code</code>, <code class="inline">vm.runInNewContext</code> emits the syntax error to stderr
+and throws an exception.</p></div></div><div class="css-lmvmh4"><div class="css-rpwxhi"><code><div><div class="cm-s-runkit-light"><div class="CodeMirror CodeMirror-lines theme-border-color theme-border-radius css-1jscp06"><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div><span style="white-space:pre">    </span><span class="cm-keyword">var</span><span style="white-space:pre"> </span><span class="cm-def">util</span><span style="white-space:pre"> </span><span class="cm-operator">=</span><span style="white-space:pre"> </span><span class="cm-variable">require</span><span style="white-space:pre">(</span><span class="cm-string">&#x27;util&#x27;</span><span style="white-space:pre">)</span><span style="white-space:pre">,</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">        </span><span class="cm-def">vm</span><span style="white-space:pre"> </span><span class="cm-operator">=</span><span style="white-space:pre"> </span><span class="cm-variable">require</span><span style="white-space:pre">(</span><span class="cm-string">&#x27;vm&#x27;</span><span style="white-space:pre">)</span><span style="white-space:pre">,</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">        </span><span class="cm-def">sandbox</span><span style="white-space:pre"> </span><span class="cm-operator">=</span><span style="white-space:pre"> </span><span style="white-space:pre">{</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">          </span><span class="cm-property">animal</span><span style="white-space:pre">:</span><span style="white-space:pre"> </span><span class="cm-string">&#x27;cat&#x27;</span><span style="white-space:pre">,</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">          </span><span class="cm-property">count</span><span style="white-space:pre">:</span><span style="white-space:pre"> </span><span class="cm-number">2</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">        </span><span style="white-space:pre">}</span><span style="white-space:pre">;</span></div><div class="empty"><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+</div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">    </span><span class="cm-variable">vm</span><span style="white-space:pre">.</span><span class="cm-property">runInNewContext</span><span style="white-space:pre">(</span><span class="cm-string">&#x27;count += 1; name = &quot;kitty&quot;&#x27;</span><span style="white-space:pre">,</span><span style="white-space:pre"> </span><span class="cm-variable">sandbox</span><span style="white-space:pre">,</span><span style="white-space:pre"> </span><span class="cm-string">&#x27;myfile.vm&#x27;</span><span style="white-space:pre">)</span><span style="white-space:pre">;</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">    </span><span class="cm-variable">console</span><span style="white-space:pre">.</span><span class="cm-property">log</span><span style="white-space:pre">(</span><span class="cm-variable">util</span><span style="white-space:pre">.</span><span class="cm-property">inspect</span><span style="white-space:pre">(</span><span class="cm-variable">sandbox</span><span style="white-space:pre">)</span><span style="white-space:pre">)</span><span style="white-space:pre">;</span></div><div class="empty"><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+</div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">    </span><span class="cm-comment">// { animal: &#x27;cat&#x27;, count: 3, name: &#x27;kitty&#x27; }</span></div></div></div><script>
+        var tag = document.currentScript || (function (scripts)
+        {
+            return scripts[scripts.length - 1];
+        })(document.getElementsByTagName("script"));
+        var target = tag.previousSibling;
+        var configuration = {"getShareableURL":false,"evaluateOnLoad":false};
+
+        ["getShareableURL", "onLoad", "evaluateOnLoad"].map(function (method)
+        {
+            if (configuration[method])
+                configuration[method] = function ()
+                {
+                    window[method].apply(null, arguments);
+                }
+        });
+
+        configuration.element = target;
+        configuration.source = RunKit.sourceFromElement(target);
+        configuration.clearParentContents = true;
+        var notebook = RunKit.createNotebook(configuration);
+        </script></div></code></div></div></section><section class="css-k008qs"><div class="css-17bai9i"><div class="css-1deafrq"><h2>vm.runInContext(code, context, [filename])</h2><span></span><p><code class="inline">vm.runInContext</code> compiles <code class="inline">code</code>, then runs it in <code class="inline">context</code> and returns the
+result. A (V8) context comprises a global object, together with a set of
+built-in objects and functions. Running code does not have access to local scope
+and the global object held within <code class="inline">context</code> will be used as the global object
+for <code class="inline">code</code>.
+<code class="inline">filename</code> is optional, it&#x27;s used only in stack traces.</p><p>Example: compile and execute code in a existing context.</p><p>Note that <code class="inline">createContext</code> will perform a shallow clone of the supplied sandbox object in order to
+initialize the global object of the freshly constructed context.</p><p>Note that running untrusted code is a tricky business requiring great care.  To prevent accidental
+global variable leakage, <code class="inline">vm.runInContext</code> is quite useful, but safely running untrusted code
+requires a separate process.</p><p>In case of syntax error in <code class="inline">code</code>, <code class="inline">vm.runInContext</code> emits the syntax error to stderr
+and throws an exception.</p></div></div><div class="css-lmvmh4"><div class="css-rpwxhi"><code><div><div class="cm-s-runkit-light"><div class="CodeMirror CodeMirror-lines theme-border-color theme-border-radius css-1jscp06"><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div><span style="white-space:pre">    </span><span class="cm-keyword">var</span><span style="white-space:pre"> </span><span class="cm-def">util</span><span style="white-space:pre"> </span><span class="cm-operator">=</span><span style="white-space:pre"> </span><span class="cm-variable">require</span><span style="white-space:pre">(</span><span class="cm-string">&#x27;util&#x27;</span><span style="white-space:pre">)</span><span style="white-space:pre">,</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">        </span><span class="cm-def">vm</span><span style="white-space:pre"> </span><span class="cm-operator">=</span><span style="white-space:pre"> </span><span class="cm-variable">require</span><span style="white-space:pre">(</span><span class="cm-string">&#x27;vm&#x27;</span><span style="white-space:pre">)</span><span style="white-space:pre">,</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">        </span><span class="cm-def">initSandbox</span><span style="white-space:pre"> </span><span class="cm-operator">=</span><span style="white-space:pre"> </span><span style="white-space:pre">{</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">          </span><span class="cm-property">animal</span><span style="white-space:pre">:</span><span style="white-space:pre"> </span><span class="cm-string">&#x27;cat&#x27;</span><span style="white-space:pre">,</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">          </span><span class="cm-property">count</span><span style="white-space:pre">:</span><span style="white-space:pre"> </span><span class="cm-number">2</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">        </span><span style="white-space:pre">}</span><span style="white-space:pre">,</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">        </span><span class="cm-def">context</span><span style="white-space:pre"> </span><span class="cm-operator">=</span><span style="white-space:pre"> </span><span class="cm-variable">vm</span><span style="white-space:pre">.</span><span class="cm-property">createContext</span><span style="white-space:pre">(</span><span class="cm-variable">initSandbox</span><span style="white-space:pre">)</span><span style="white-space:pre">;</span></div><div class="empty"><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+</div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">    </span><span class="cm-variable">vm</span><span style="white-space:pre">.</span><span class="cm-property">runInContext</span><span style="white-space:pre">(</span><span class="cm-string">&#x27;count += 1; name = &quot;CATT&quot;&#x27;</span><span style="white-space:pre">,</span><span style="white-space:pre"> </span><span class="cm-variable">context</span><span style="white-space:pre">,</span><span style="white-space:pre"> </span><span class="cm-string">&#x27;myfile.vm&#x27;</span><span style="white-space:pre">)</span><span style="white-space:pre">;</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">    </span><span class="cm-variable">console</span><span style="white-space:pre">.</span><span class="cm-property">log</span><span style="white-space:pre">(</span><span class="cm-variable">util</span><span style="white-space:pre">.</span><span class="cm-property">inspect</span><span style="white-space:pre">(</span><span class="cm-variable">context</span><span style="white-space:pre">)</span><span style="white-space:pre">)</span><span style="white-space:pre">;</span></div><div class="empty"><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+</div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">    </span><span class="cm-comment">// { animal: &#x27;cat&#x27;, count: 3, name: &#x27;CATT&#x27; }</span></div></div></div><script>
+        var tag = document.currentScript || (function (scripts)
+        {
+            return scripts[scripts.length - 1];
+        })(document.getElementsByTagName("script"));
+        var target = tag.previousSibling;
+        var configuration = {"getShareableURL":false,"evaluateOnLoad":false};
+
+        ["getShareableURL", "onLoad", "evaluateOnLoad"].map(function (method)
+        {
+            if (configuration[method])
+                configuration[method] = function ()
+                {
+                    window[method].apply(null, arguments);
+                }
+        });
+
+        configuration.element = target;
+        configuration.source = RunKit.sourceFromElement(target);
+        configuration.clearParentContents = true;
+        var notebook = RunKit.createNotebook(configuration);
+        </script></div></code></div></div></section><section class="css-k008qs"><div class="css-17bai9i"><div class="css-1deafrq"><h2>vm.createContext([initSandbox])</h2><span></span><p><code class="inline">vm.createContext</code> creates a new context which is suitable for use as the 2nd argument of a subsequent
+call to <code class="inline">vm.runInContext</code>. A (V8) context comprises a global object together with a set of
+build-in objects and functions. The optional argument <code class="inline">initSandbox</code> will be shallow-copied
+to seed the initial contents of the global object used by the context.</p></div></div><div class="css-lmvmh4"><div class="css-rpwxhi"></div></div></section><section class="css-k008qs"><div class="css-17bai9i"><div class="css-1deafrq"><h2>vm.createScript(code, [filename])</h2><span></span><p><code class="inline">createScript</code> compiles <code class="inline">code</code> but does not run it. Instead, it returns a
+<code class="inline">vm.Script</code> object representing this compiled code. This script can be run
+later many times using methods below. The returned script is not bound to any
+global object. It is bound before each run, just for that run. <code class="inline">filename</code> is
+optional, it&#x27;s only used in stack traces.</p><p>In case of syntax error in <code class="inline">code</code>, <code class="inline">createScript</code> prints the syntax error to stderr
+and throws an exception.</p></div></div><div class="css-lmvmh4"><div class="css-rpwxhi"></div></div></section><section class="css-k008qs"><div class="css-17bai9i"><div class="css-1deafrq"><h2>Class: Script</h2><span></span><p>A class for running scripts.  Returned by vm.createScript.</p></div></div><div class="css-lmvmh4"><div class="css-rpwxhi"></div></div></section><section class="css-k008qs"><div class="css-17bai9i"><div class="css-1deafrq"><h3>script.runInThisContext()</h3><span></span><p>Similar to <code class="inline">vm.runInThisContext</code> but a method of a precompiled <code class="inline">Script</code> object.
+<code class="inline">script.runInThisContext</code> runs the code of <code class="inline">script</code> and returns the result.
+Running code does not have access to local scope, but does have access to the <code class="inline">global</code> object
+(v8: in actual context).</p><p>Example of using <code class="inline">script.runInThisContext</code> to compile code once and run it multiple times:</p></div></div><div class="css-lmvmh4"><div class="css-rpwxhi"><code><div><div class="cm-s-runkit-light"><div class="CodeMirror CodeMirror-lines theme-border-color theme-border-radius css-1jscp06"><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div><span style="white-space:pre">    </span><span class="cm-keyword">var</span><span style="white-space:pre"> </span><span class="cm-def">vm</span><span style="white-space:pre"> </span><span class="cm-operator">=</span><span style="white-space:pre"> </span><span class="cm-variable">require</span><span style="white-space:pre">(</span><span class="cm-string">&#x27;vm&#x27;</span><span style="white-space:pre">)</span><span style="white-space:pre">;</span></div><div class="empty"><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+</div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">    </span><span class="cm-variable">globalVar</span><span style="white-space:pre"> </span><span class="cm-operator">=</span><span style="white-space:pre"> </span><span class="cm-number">0</span><span style="white-space:pre">;</span></div><div class="empty"><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+</div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">    </span><span class="cm-keyword">var</span><span style="white-space:pre"> </span><span class="cm-def">script</span><span style="white-space:pre"> </span><span class="cm-operator">=</span><span style="white-space:pre"> </span><span class="cm-variable">vm</span><span style="white-space:pre">.</span><span class="cm-property">createScript</span><span style="white-space:pre">(</span><span class="cm-string">&#x27;globalVar += 1&#x27;</span><span style="white-space:pre">,</span><span style="white-space:pre"> </span><span class="cm-string">&#x27;myfile.vm&#x27;</span><span style="white-space:pre">)</span><span style="white-space:pre">;</span></div><div class="empty"><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+</div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">    </span><span class="cm-keyword">for</span><span style="white-space:pre"> </span><span style="white-space:pre">(</span><span class="cm-keyword">var</span><span style="white-space:pre"> </span><span class="cm-def">i</span><span style="white-space:pre"> </span><span class="cm-operator">=</span><span style="white-space:pre"> </span><span class="cm-number">0</span><span style="white-space:pre">;</span><span style="white-space:pre"> </span><span class="cm-variable">i</span><span style="white-space:pre"> </span><span class="cm-operator">&lt;</span><span style="white-space:pre"> </span><span class="cm-number">1000</span><span style="white-space:pre"> </span><span style="white-space:pre">;</span><span style="white-space:pre"> </span><span class="cm-variable">i</span><span style="white-space:pre"> </span><span class="cm-operator">+=</span><span style="white-space:pre"> </span><span class="cm-number">1</span><span style="white-space:pre">)</span><span style="white-space:pre"> </span><span style="white-space:pre">{</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">      </span><span class="cm-variable">script</span><span style="white-space:pre">.</span><span class="cm-property">runInThisContext</span><span style="white-space:pre">(</span><span style="white-space:pre">)</span><span style="white-space:pre">;</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">    </span><span style="white-space:pre">}</span></div><div class="empty"><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+</div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">    </span><span class="cm-variable">console</span><span style="white-space:pre">.</span><span class="cm-property">log</span><span style="white-space:pre">(</span><span class="cm-variable">globalVar</span><span style="white-space:pre">)</span><span style="white-space:pre">;</span></div><div class="empty"><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+</div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">    </span><span class="cm-comment">// 1000</span></div></div></div><script>
+        var tag = document.currentScript || (function (scripts)
+        {
+            return scripts[scripts.length - 1];
+        })(document.getElementsByTagName("script"));
+        var target = tag.previousSibling;
+        var configuration = {"getShareableURL":false,"evaluateOnLoad":false};
+
+        ["getShareableURL", "onLoad", "evaluateOnLoad"].map(function (method)
+        {
+            if (configuration[method])
+                configuration[method] = function ()
+                {
+                    window[method].apply(null, arguments);
+                }
+        });
+
+        configuration.element = target;
+        configuration.source = RunKit.sourceFromElement(target);
+        configuration.clearParentContents = true;
+        var notebook = RunKit.createNotebook(configuration);
+        </script></div></code></div></div></section><section class="css-k008qs"><div class="css-17bai9i"><div class="css-1deafrq"><h3>script.runInNewContext([sandbox])</h3><span></span><p>Similar to <code class="inline">vm.runInNewContext</code> a method of a precompiled <code class="inline">Script</code> object.
+<code class="inline">script.runInNewContext</code> runs the code of <code class="inline">script</code> with <code class="inline">sandbox</code> as the global object and returns the result.
+Running code does not have access to local scope. <code class="inline">sandbox</code> is optional.</p><p>Example: compile code that increments a global variable and sets one, then execute this code multiple times.
+These globals are contained in the sandbox.</p><p>Note that running untrusted code is a tricky business requiring great care.  To prevent accidental
+global variable leakage, <code class="inline">script.runInNewContext</code> is quite useful, but safely running untrusted code
+requires a separate process.</p></div></div><div class="css-lmvmh4"><div class="css-rpwxhi"><code><div><div class="cm-s-runkit-light"><div class="CodeMirror CodeMirror-lines theme-border-color theme-border-radius css-1jscp06"><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div><span style="white-space:pre">    </span><span class="cm-keyword">var</span><span style="white-space:pre"> </span><span class="cm-def">util</span><span style="white-space:pre"> </span><span class="cm-operator">=</span><span style="white-space:pre"> </span><span class="cm-variable">require</span><span style="white-space:pre">(</span><span class="cm-string">&#x27;util&#x27;</span><span style="white-space:pre">)</span><span style="white-space:pre">,</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">        </span><span class="cm-def">vm</span><span style="white-space:pre"> </span><span class="cm-operator">=</span><span style="white-space:pre"> </span><span class="cm-variable">require</span><span style="white-space:pre">(</span><span class="cm-string">&#x27;vm&#x27;</span><span style="white-space:pre">)</span><span style="white-space:pre">,</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">        </span><span class="cm-def">sandbox</span><span style="white-space:pre"> </span><span class="cm-operator">=</span><span style="white-space:pre"> </span><span style="white-space:pre">{</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">          </span><span class="cm-property">animal</span><span style="white-space:pre">:</span><span style="white-space:pre"> </span><span class="cm-string">&#x27;cat&#x27;</span><span style="white-space:pre">,</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">          </span><span class="cm-property">count</span><span style="white-space:pre">:</span><span style="white-space:pre"> </span><span class="cm-number">2</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">        </span><span style="white-space:pre">}</span><span style="white-space:pre">;</span></div><div class="empty"><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+</div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">    </span><span class="cm-keyword">var</span><span style="white-space:pre"> </span><span class="cm-def">script</span><span style="white-space:pre"> </span><span class="cm-operator">=</span><span style="white-space:pre"> </span><span class="cm-variable">vm</span><span style="white-space:pre">.</span><span class="cm-property">createScript</span><span style="white-space:pre">(</span><span class="cm-string">&#x27;count += 1; name = &quot;kitty&quot;&#x27;</span><span style="white-space:pre">,</span><span style="white-space:pre"> </span><span class="cm-string">&#x27;myfile.vm&#x27;</span><span style="white-space:pre">)</span><span style="white-space:pre">;</span></div><div class="empty"><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+</div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">    </span><span class="cm-keyword">for</span><span style="white-space:pre"> </span><span style="white-space:pre">(</span><span class="cm-keyword">var</span><span style="white-space:pre"> </span><span class="cm-def">i</span><span style="white-space:pre"> </span><span class="cm-operator">=</span><span style="white-space:pre"> </span><span class="cm-number">0</span><span style="white-space:pre">;</span><span style="white-space:pre"> </span><span class="cm-variable">i</span><span style="white-space:pre"> </span><span class="cm-operator">&lt;</span><span style="white-space:pre"> </span><span class="cm-number">10</span><span style="white-space:pre"> </span><span style="white-space:pre">;</span><span style="white-space:pre"> </span><span class="cm-variable">i</span><span style="white-space:pre"> </span><span class="cm-operator">+=</span><span style="white-space:pre"> </span><span class="cm-number">1</span><span style="white-space:pre">)</span><span style="white-space:pre"> </span><span style="white-space:pre">{</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">      </span><span class="cm-variable">script</span><span style="white-space:pre">.</span><span class="cm-property">runInNewContext</span><span style="white-space:pre">(</span><span class="cm-variable">sandbox</span><span style="white-space:pre">)</span><span style="white-space:pre">;</span></div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">    </span><span style="white-space:pre">}</span></div><div class="empty"><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+</div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">    </span><span class="cm-variable">console</span><span style="white-space:pre">.</span><span class="cm-property">log</span><span style="white-space:pre">(</span><span class="cm-variable">util</span><span style="white-space:pre">.</span><span class="cm-property">inspect</span><span style="white-space:pre">(</span><span class="cm-variable">sandbox</span><span style="white-space:pre">)</span><span style="white-space:pre">)</span><span style="white-space:pre">;</span></div><div class="empty"><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+</div><div class=""><div class="CodeMirror-gutter-wrapper"><span class="CodeMirror-linenumber"></span></div>
+<span style="white-space:pre">    </span><span class="cm-comment">// { animal: &#x27;cat&#x27;, count: 12, name: &#x27;kitty&#x27; }</span></div></div></div><script>
+        var tag = document.currentScript || (function (scripts)
+        {
+            return scripts[scripts.length - 1];
+        })(document.getElementsByTagName("script"));
+        var target = tag.previousSibling;
+        var configuration = {"getShareableURL":false,"evaluateOnLoad":false};
+
+        ["getShareableURL", "onLoad", "evaluateOnLoad"].map(function (method)
+        {
+            if (configuration[method])
+                configuration[method] = function ()
+                {
+                    window[method].apply(null, arguments);
+                }
+        });
+
+        configuration.element = target;
+        configuration.source = RunKit.sourceFromElement(target);
+        configuration.clearParentContents = true;
+        var notebook = RunKit.createNotebook(configuration);
+        </script></div></code></div></div></section></div></main></body><script src="/assets/common.js"></script></body></html>
