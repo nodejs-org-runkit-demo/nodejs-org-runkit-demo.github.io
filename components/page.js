@@ -33,7 +33,6 @@ module.exports = function ({ site, title, href, children })
                 </head>
                 <body>
                     { body }
-                    <script src = "/assets/common.js" />
                 </body>
             </html>;
 }
