@@ -49,7 +49,7 @@ module.exports = function ({ children, ...rest })
                     <script src = "https://embed.runkit-demo.com" />
                     <nav>
                         <Navigation>
-                            { articleContents.map(({ markup }) => markup[0].props.children) }
+                            { [<div style = { { width:"1px", height:"20px" } } />].concat(articleContents.map(({ markup }) => markup[0].props.children)) }
                         </Navigation>
                     </nav>
                     <main css = "margin-left:235px; width:calc(100vw - 235px);" >
@@ -80,7 +80,7 @@ function RUN()
 {
     window.onLoad = function (embed)
     {
-        
+
         embed
             .getShareableURL()
             .then(function ()
@@ -91,11 +91,28 @@ function RUN()
                 while (article.tagName !== "ARTICLE")
                     article = article.parentNode;
 
+                const path = article.dataset.path;
                 const iframe = article.querySelector(".browser-iframe");
                 const progressBar = article.querySelector(".browser-progress-bar");
                 const { contentWindow } = iframe;
+                const progress = { loaded: false, initialized: false };
 
-                embed.onSave = () => { console.log("POSTING REFRESH"); contentWindow.postMessage("refresh", "*"); }
+                embed.onSave = function ()
+                {
+                    if (!progress.initialized)
+                    {
+                        progress.initialized = true;
+                        iframe.src = endpointURL + "/jefkasjdfkjasdklfjsldkf/iframe-loader";
+                        iframe.addEventListener("load", () =>
+                        {
+                            progress.loaded = true;
+                            contentWindow.postMessage({ name: "refresh", path }, "*")
+                        });
+                    }
+
+                    if (progress.loaded)
+                        contentWindow.postMessage({ name: "refresh", path }, "*");
+                }
 
                 window.addEventListener("message", function ({ source, origin, data })
                 {
@@ -109,12 +126,6 @@ function RUN()
                             progressBar.classList.add("animate-load"), 0);
                     }
                 });
-
-                setTimeout(function () {
-                iframe.src = embed.endpointURL +
-                    "/jefkasjdfkjasdklfjsldkf/iframe?base64=" +
-                    encodeURIComponent("InjectedIFrameBase64");
-                }, 1000);
             });
     }
 }

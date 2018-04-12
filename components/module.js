@@ -16,10 +16,9 @@ module.exports = function ({ children, ...rest })
 
     return  <Page { ...rest }>
                 <head>
-                    <link rel = "stylesheet" href = "https://fonts.googleapis.com/css?family=Roboto" />
                     <link rel = "stylesheet" href = "https://themes.runkitcdn.com/runkit-light.css" />
                 </head>
-                <body css = "font-family: Roboto; font-size:16px; padding: 0; margin: 0" >
+                <body css = "font-size:16px; padding: 0; margin: 0" >
                     <script src = "https://embed.runkit-demo.com" />
                     <div css = "width: 235px; position:fixed; height: 100vh; overflow: scroll">
                         <Navigation>
@@ -32,14 +31,14 @@ module.exports = function ({ children, ...rest })
                         sections.map(section =>
                             <section css = "display: flex;">
                                 <div css = "flex:1 0 0; max-width: 50%" >
-                                    <div css = "padding:0 50px 50px 50px; position: sticky; top: 0">
+                                    <div css = "padding:0px 50px 50px 50px; display: block; position: sticky; top: 40px">
                                         { section.header }
                                         <Stability stability = { section.stability } />
                                         { section.children }
                                     </div>
                                 </div>
-                                <div css = "flex:1 0 0; max-width: 50%; overflow: hidden; border-left:1px solid rgb(221, 221, 221); background: #f5f5f5;" >
-                                    <div css = "padding:0 50px 50px 50px; position: sticky; top: 40px">
+                                <div css = "flex:1 0 0; max-width: 50%; border-left:1px solid rgb(221, 221, 221); background: #f5f5f5;" >
+                                    <div css = "padding:40px 50px 50px 50px; display:block; position: sticky; top: 40px">
                                         { section.example }
                                     </div>
                                 </div>
@@ -60,7 +59,7 @@ function Stability({ stability })
 
     const css = `
         position: absolute;
-        top:0;
+        top:0px;
         right:50px;
         border: 1px solid rgba(${tint}, 1.0);
         background: rgba(${tint}, 0.2);
@@ -115,6 +114,7 @@ function toSections(children)
 
 const NavLinks =
 [
+    <div style = { { width:"1px", height:"20px" } } />,
     "Assertion Testing",
     "Async Hooks",
     "Buffer",
