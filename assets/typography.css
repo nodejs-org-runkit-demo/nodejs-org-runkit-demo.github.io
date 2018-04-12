@@ -1,0 +1,335 @@
+.fluid-content
+{
+    font-family:    -apple-system, BlinkMacSystemFont, Roboto,
+                    "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    line-height: 1.666667;
+}
+
+.fluid-content-font-size-stop-45cpl-320px { }
+.fluid-content-font-size-stop-80cpl-700px { }
+
+.fluid-title
+{
+    font-family:    -apple-system, BlinkMacSystemFont, Roboto,
+                    "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 200;
+    line-height: 1.5;
+}
+
+.fluid-title-font-size-stop-24px-320px { }
+.fluid-title-font-size-stop-53px-760px { }
+
+.fluid-title-35
+{
+    font-family:    -apple-system, BlinkMacSystemFont, Roboto,
+                    "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 200;
+    line-height: 1.5;
+}
+
+.fluid-title-35-font-size-stop-24px-320px { }
+.fluid-title-35-font-size-stop-70px-800px { }
+
+@media (min-width: 320px) { .fluid-content { font-size: 16.407028586414896px; } }
+@media (min-width: 320px) { .fluid-content { font-size: 16.407028586414896px; } }
+@media (min-width: 341px) { .fluid-content { font-size: 16.615995572625504px; } }
+@media (min-width: 362px) { .fluid-content { font-size: 16.824962558836113px; } }
+@media (min-width: 383px) { .fluid-content { font-size: 17.033929545046725px; } }
+@media (min-width: 404px) { .fluid-content { font-size: 17.242896531257333px; } }
+@media (min-width: 425px) { .fluid-content { font-size: 17.45186351746794px; } }
+@media (min-width: 446px) { .fluid-content { font-size: 17.66083050367855px; } }
+@media (min-width: 467px) { .fluid-content { font-size: 17.86979748988916px; } }
+@media (min-width: 488px) { .fluid-content { font-size: 18.078764476099767px; } }
+@media (min-width: 509px) { .fluid-content { font-size: 18.28773146231038px; } }
+@media (min-width: 530px) { .fluid-content { font-size: 18.496698448520988px; } }
+@media (min-width: 551px) { .fluid-content { font-size: 18.705665434731596px; } }
+@media (min-width: 572px) { .fluid-content { font-size: 18.914632420942205px; } }
+@media (min-width: 593px) { .fluid-content { font-size: 19.123599407152813px; } }
+@media (min-width: 614px) { .fluid-content { font-size: 19.33256639336342px; } }
+@media (min-width: 635px) { .fluid-content { font-size: 19.541533379574034px; } }
+@media (min-width: 656px) { .fluid-content { font-size: 19.750500365784642px; } }
+@media (min-width: 677px) { .fluid-content { font-size: 19.95946735199525px; } }
+@media (min-width: 698px) { .fluid-content { font-size: 20.16843433820586px; } }
+@media (min-width: 320px) { .fluid-title-35 { font-size: 24px; } }
+@media (min-width: 320px) { .fluid-title-35 { font-size: 24px; } }
+@media (min-width: 323px) { .fluid-title-35 { font-size: 24.2875px; } }
+@media (min-width: 326px) { .fluid-title-35 { font-size: 24.575px; } }
+@media (min-width: 329px) { .fluid-title-35 { font-size: 24.8625px; } }
+@media (min-width: 332px) { .fluid-title-35 { font-size: 25.15px; } }
+@media (min-width: 335px) { .fluid-title-35 { font-size: 25.4375px; } }
+@media (min-width: 338px) { .fluid-title-35 { font-size: 25.725px; } }
+@media (min-width: 341px) { .fluid-title-35 { font-size: 26.0125px; } }
+@media (min-width: 344px) { .fluid-title-35 { font-size: 26.3px; } }
+@media (min-width: 347px) { .fluid-title-35 { font-size: 26.5875px; } }
+@media (min-width: 350px) { .fluid-title-35 { font-size: 26.875px; } }
+@media (min-width: 353px) { .fluid-title-35 { font-size: 27.1625px; } }
+@media (min-width: 356px) { .fluid-title-35 { font-size: 27.45px; } }
+@media (min-width: 359px) { .fluid-title-35 { font-size: 27.7375px; } }
+@media (min-width: 362px) { .fluid-title-35 { font-size: 28.025px; } }
+@media (min-width: 365px) { .fluid-title-35 { font-size: 28.3125px; } }
+@media (min-width: 368px) { .fluid-title-35 { font-size: 28.6px; } }
+@media (min-width: 371px) { .fluid-title-35 { font-size: 28.8875px; } }
+@media (min-width: 374px) { .fluid-title-35 { font-size: 29.175px; } }
+@media (min-width: 377px) { .fluid-title-35 { font-size: 29.4625px; } }
+@media (min-width: 380px) { .fluid-title-35 { font-size: 29.75px; } }
+@media (min-width: 383px) { .fluid-title-35 { font-size: 30.0375px; } }
+@media (min-width: 386px) { .fluid-title-35 { font-size: 30.325px; } }
+@media (min-width: 389px) { .fluid-title-35 { font-size: 30.6125px; } }
+@media (min-width: 392px) { .fluid-title-35 { font-size: 30.9px; } }
+@media (min-width: 395px) { .fluid-title-35 { font-size: 31.1875px; } }
+@media (min-width: 398px) { .fluid-title-35 { font-size: 31.475px; } }
+@media (min-width: 401px) { .fluid-title-35 { font-size: 31.7625px; } }
+@media (min-width: 404px) { .fluid-title-35 { font-size: 32.05px; } }
+@media (min-width: 407px) { .fluid-title-35 { font-size: 32.3375px; } }
+@media (min-width: 410px) { .fluid-title-35 { font-size: 32.625px; } }
+@media (min-width: 413px) { .fluid-title-35 { font-size: 32.9125px; } }
+@media (min-width: 416px) { .fluid-title-35 { font-size: 33.2px; } }
+@media (min-width: 419px) { .fluid-title-35 { font-size: 33.4875px; } }
+@media (min-width: 422px) { .fluid-title-35 { font-size: 33.775px; } }
+@media (min-width: 425px) { .fluid-title-35 { font-size: 34.0625px; } }
+@media (min-width: 428px) { .fluid-title-35 { font-size: 34.35px; } }
+@media (min-width: 431px) { .fluid-title-35 { font-size: 34.6375px; } }
+@media (min-width: 434px) { .fluid-title-35 { font-size: 34.925px; } }
+@media (min-width: 437px) { .fluid-title-35 { font-size: 35.2125px; } }
+@media (min-width: 440px) { .fluid-title-35 { font-size: 35.5px; } }
+@media (min-width: 443px) { .fluid-title-35 { font-size: 35.7875px; } }
+@media (min-width: 446px) { .fluid-title-35 { font-size: 36.075px; } }
+@media (min-width: 449px) { .fluid-title-35 { font-size: 36.3625px; } }
+@media (min-width: 452px) { .fluid-title-35 { font-size: 36.65px; } }
+@media (min-width: 455px) { .fluid-title-35 { font-size: 36.9375px; } }
+@media (min-width: 458px) { .fluid-title-35 { font-size: 37.225px; } }
+@media (min-width: 461px) { .fluid-title-35 { font-size: 37.5125px; } }
+@media (min-width: 464px) { .fluid-title-35 { font-size: 37.8px; } }
+@media (min-width: 467px) { .fluid-title-35 { font-size: 38.0875px; } }
+@media (min-width: 470px) { .fluid-title-35 { font-size: 38.375px; } }
+@media (min-width: 473px) { .fluid-title-35 { font-size: 38.6625px; } }
+@media (min-width: 476px) { .fluid-title-35 { font-size: 38.95px; } }
+@media (min-width: 479px) { .fluid-title-35 { font-size: 39.2375px; } }
+@media (min-width: 482px) { .fluid-title-35 { font-size: 39.525px; } }
+@media (min-width: 485px) { .fluid-title-35 { font-size: 39.8125px; } }
+@media (min-width: 488px) { .fluid-title-35 { font-size: 40.099999999999994px; } }
+@media (min-width: 491px) { .fluid-title-35 { font-size: 40.3875px; } }
+@media (min-width: 494px) { .fluid-title-35 { font-size: 40.675px; } }
+@media (min-width: 497px) { .fluid-title-35 { font-size: 40.962500000000006px; } }
+@media (min-width: 500px) { .fluid-title-35 { font-size: 41.25px; } }
+@media (min-width: 503px) { .fluid-title-35 { font-size: 41.537499999999994px; } }
+@media (min-width: 506px) { .fluid-title-35 { font-size: 41.825px; } }
+@media (min-width: 509px) { .fluid-title-35 { font-size: 42.1125px; } }
+@media (min-width: 512px) { .fluid-title-35 { font-size: 42.400000000000006px; } }
+@media (min-width: 515px) { .fluid-title-35 { font-size: 42.6875px; } }
+@media (min-width: 518px) { .fluid-title-35 { font-size: 42.974999999999994px; } }
+@media (min-width: 521px) { .fluid-title-35 { font-size: 43.2625px; } }
+@media (min-width: 524px) { .fluid-title-35 { font-size: 43.55px; } }
+@media (min-width: 527px) { .fluid-title-35 { font-size: 43.837500000000006px; } }
+@media (min-width: 530px) { .fluid-title-35 { font-size: 44.125px; } }
+@media (min-width: 533px) { .fluid-title-35 { font-size: 44.412499999999994px; } }
+@media (min-width: 536px) { .fluid-title-35 { font-size: 44.7px; } }
+@media (min-width: 539px) { .fluid-title-35 { font-size: 44.9875px; } }
+@media (min-width: 542px) { .fluid-title-35 { font-size: 45.275000000000006px; } }
+@media (min-width: 545px) { .fluid-title-35 { font-size: 45.5625px; } }
+@media (min-width: 548px) { .fluid-title-35 { font-size: 45.849999999999994px; } }
+@media (min-width: 551px) { .fluid-title-35 { font-size: 46.1375px; } }
+@media (min-width: 554px) { .fluid-title-35 { font-size: 46.425px; } }
+@media (min-width: 557px) { .fluid-title-35 { font-size: 46.712500000000006px; } }
+@media (min-width: 560px) { .fluid-title-35 { font-size: 47px; } }
+@media (min-width: 563px) { .fluid-title-35 { font-size: 47.287499999999994px; } }
+@media (min-width: 566px) { .fluid-title-35 { font-size: 47.575px; } }
+@media (min-width: 569px) { .fluid-title-35 { font-size: 47.8625px; } }
+@media (min-width: 572px) { .fluid-title-35 { font-size: 48.150000000000006px; } }
+@media (min-width: 575px) { .fluid-title-35 { font-size: 48.4375px; } }
+@media (min-width: 578px) { .fluid-title-35 { font-size: 48.724999999999994px; } }
+@media (min-width: 581px) { .fluid-title-35 { font-size: 49.0125px; } }
+@media (min-width: 584px) { .fluid-title-35 { font-size: 49.3px; } }
+@media (min-width: 587px) { .fluid-title-35 { font-size: 49.587500000000006px; } }
+@media (min-width: 590px) { .fluid-title-35 { font-size: 49.875px; } }
+@media (min-width: 593px) { .fluid-title-35 { font-size: 50.162499999999994px; } }
+@media (min-width: 596px) { .fluid-title-35 { font-size: 50.45px; } }
+@media (min-width: 599px) { .fluid-title-35 { font-size: 50.7375px; } }
+@media (min-width: 602px) { .fluid-title-35 { font-size: 51.025000000000006px; } }
+@media (min-width: 605px) { .fluid-title-35 { font-size: 51.3125px; } }
+@media (min-width: 608px) { .fluid-title-35 { font-size: 51.599999999999994px; } }
+@media (min-width: 611px) { .fluid-title-35 { font-size: 51.8875px; } }
+@media (min-width: 614px) { .fluid-title-35 { font-size: 52.175px; } }
+@media (min-width: 617px) { .fluid-title-35 { font-size: 52.462500000000006px; } }
+@media (min-width: 620px) { .fluid-title-35 { font-size: 52.75px; } }
+@media (min-width: 623px) { .fluid-title-35 { font-size: 53.037499999999994px; } }
+@media (min-width: 626px) { .fluid-title-35 { font-size: 53.325px; } }
+@media (min-width: 629px) { .fluid-title-35 { font-size: 53.6125px; } }
+@media (min-width: 632px) { .fluid-title-35 { font-size: 53.900000000000006px; } }
+@media (min-width: 635px) { .fluid-title-35 { font-size: 54.1875px; } }
+@media (min-width: 638px) { .fluid-title-35 { font-size: 54.474999999999994px; } }
+@media (min-width: 641px) { .fluid-title-35 { font-size: 54.7625px; } }
+@media (min-width: 644px) { .fluid-title-35 { font-size: 55.05px; } }
+@media (min-width: 647px) { .fluid-title-35 { font-size: 55.337500000000006px; } }
+@media (min-width: 650px) { .fluid-title-35 { font-size: 55.625px; } }
+@media (min-width: 653px) { .fluid-title-35 { font-size: 55.912499999999994px; } }
+@media (min-width: 656px) { .fluid-title-35 { font-size: 56.199999999999996px; } }
+@media (min-width: 659px) { .fluid-title-35 { font-size: 56.487500000000004px; } }
+@media (min-width: 662px) { .fluid-title-35 { font-size: 56.775px; } }
+@media (min-width: 665px) { .fluid-title-35 { font-size: 57.0625px; } }
+@media (min-width: 668px) { .fluid-title-35 { font-size: 57.35px; } }
+@media (min-width: 671px) { .fluid-title-35 { font-size: 57.637499999999996px; } }
+@media (min-width: 674px) { .fluid-title-35 { font-size: 57.925000000000004px; } }
+@media (min-width: 677px) { .fluid-title-35 { font-size: 58.2125px; } }
+@media (min-width: 680px) { .fluid-title-35 { font-size: 58.5px; } }
+@media (min-width: 683px) { .fluid-title-35 { font-size: 58.7875px; } }
+@media (min-width: 686px) { .fluid-title-35 { font-size: 59.074999999999996px; } }
+@media (min-width: 689px) { .fluid-title-35 { font-size: 59.362500000000004px; } }
+@media (min-width: 692px) { .fluid-title-35 { font-size: 59.65px; } }
+@media (min-width: 695px) { .fluid-title-35 { font-size: 59.9375px; } }
+@media (min-width: 698px) { .fluid-title-35 { font-size: 60.225px; } }
+@media (min-width: 701px) { .fluid-title-35 { font-size: 60.512499999999996px; } }
+@media (min-width: 704px) { .fluid-title-35 { font-size: 60.800000000000004px; } }
+@media (min-width: 707px) { .fluid-title-35 { font-size: 61.0875px; } }
+@media (min-width: 710px) { .fluid-title-35 { font-size: 61.375px; } }
+@media (min-width: 713px) { .fluid-title-35 { font-size: 61.6625px; } }
+@media (min-width: 716px) { .fluid-title-35 { font-size: 61.949999999999996px; } }
+@media (min-width: 719px) { .fluid-title-35 { font-size: 62.237500000000004px; } }
+@media (min-width: 722px) { .fluid-title-35 { font-size: 62.525px; } }
+@media (min-width: 725px) { .fluid-title-35 { font-size: 62.8125px; } }
+@media (min-width: 728px) { .fluid-title-35 { font-size: 63.1px; } }
+@media (min-width: 731px) { .fluid-title-35 { font-size: 63.387499999999996px; } }
+@media (min-width: 734px) { .fluid-title-35 { font-size: 63.675000000000004px; } }
+@media (min-width: 737px) { .fluid-title-35 { font-size: 63.9625px; } }
+@media (min-width: 740px) { .fluid-title-35 { font-size: 64.25px; } }
+@media (min-width: 743px) { .fluid-title-35 { font-size: 64.5375px; } }
+@media (min-width: 746px) { .fluid-title-35 { font-size: 64.82499999999999px; } }
+@media (min-width: 749px) { .fluid-title-35 { font-size: 65.11250000000001px; } }
+@media (min-width: 752px) { .fluid-title-35 { font-size: 65.4px; } }
+@media (min-width: 755px) { .fluid-title-35 { font-size: 65.6875px; } }
+@media (min-width: 758px) { .fluid-title-35 { font-size: 65.975px; } }
+@media (min-width: 761px) { .fluid-title-35 { font-size: 66.26249999999999px; } }
+@media (min-width: 764px) { .fluid-title-35 { font-size: 66.55000000000001px; } }
+@media (min-width: 767px) { .fluid-title-35 { font-size: 66.8375px; } }
+@media (min-width: 770px) { .fluid-title-35 { font-size: 67.125px; } }
+@media (min-width: 773px) { .fluid-title-35 { font-size: 67.4125px; } }
+@media (min-width: 776px) { .fluid-title-35 { font-size: 67.69999999999999px; } }
+@media (min-width: 779px) { .fluid-title-35 { font-size: 67.98750000000001px; } }
+@media (min-width: 782px) { .fluid-title-35 { font-size: 68.275px; } }
+@media (min-width: 785px) { .fluid-title-35 { font-size: 68.5625px; } }
+@media (min-width: 788px) { .fluid-title-35 { font-size: 68.85px; } }
+@media (min-width: 791px) { .fluid-title-35 { font-size: 69.13749999999999px; } }
+@media (min-width: 794px) { .fluid-title-35 { font-size: 69.42500000000001px; } }
+@media (min-width: 797px) { .fluid-title-35 { font-size: 69.7125px; } }
+@media (min-width: 800px) { .fluid-title-35 { font-size: 70px; } }
+@media (min-width: 320px) { .fluid-title { font-size: 24px; } }
+@media (min-width: 320px) { .fluid-title { font-size: 24px; } }
+@media (min-width: 324px) { .fluid-title { font-size: 24.263636363636362px; } }
+@media (min-width: 328px) { .fluid-title { font-size: 24.527272727272727px; } }
+@media (min-width: 332px) { .fluid-title { font-size: 24.79090909090909px; } }
+@media (min-width: 336px) { .fluid-title { font-size: 25.054545454545455px; } }
+@media (min-width: 340px) { .fluid-title { font-size: 25.318181818181817px; } }
+@media (min-width: 344px) { .fluid-title { font-size: 25.581818181818182px; } }
+@media (min-width: 348px) { .fluid-title { font-size: 25.845454545454544px; } }
+@media (min-width: 352px) { .fluid-title { font-size: 26.10909090909091px; } }
+@media (min-width: 356px) { .fluid-title { font-size: 26.37272727272727px; } }
+@media (min-width: 360px) { .fluid-title { font-size: 26.636363636363637px; } }
+@media (min-width: 364px) { .fluid-title { font-size: 26.9px; } }
+@media (min-width: 368px) { .fluid-title { font-size: 27.163636363636364px; } }
+@media (min-width: 372px) { .fluid-title { font-size: 27.427272727272726px; } }
+@media (min-width: 376px) { .fluid-title { font-size: 27.69090909090909px; } }
+@media (min-width: 380px) { .fluid-title { font-size: 27.954545454545453px; } }
+@media (min-width: 384px) { .fluid-title { font-size: 28.21818181818182px; } }
+@media (min-width: 388px) { .fluid-title { font-size: 28.48181818181818px; } }
+@media (min-width: 392px) { .fluid-title { font-size: 28.745454545454546px; } }
+@media (min-width: 396px) { .fluid-title { font-size: 29.009090909090908px; } }
+@media (min-width: 400px) { .fluid-title { font-size: 29.272727272727273px; } }
+@media (min-width: 404px) { .fluid-title { font-size: 29.53636363636364px; } }
+@media (min-width: 408px) { .fluid-title { font-size: 29.8px; } }
+@media (min-width: 412px) { .fluid-title { font-size: 30.063636363636363px; } }
+@media (min-width: 416px) { .fluid-title { font-size: 30.327272727272728px; } }
+@media (min-width: 420px) { .fluid-title { font-size: 30.59090909090909px; } }
+@media (min-width: 424px) { .fluid-title { font-size: 30.854545454545455px; } }
+@media (min-width: 428px) { .fluid-title { font-size: 31.118181818181817px; } }
+@media (min-width: 432px) { .fluid-title { font-size: 31.381818181818183px; } }
+@media (min-width: 436px) { .fluid-title { font-size: 31.645454545454545px; } }
+@media (min-width: 440px) { .fluid-title { font-size: 31.909090909090907px; } }
+@media (min-width: 444px) { .fluid-title { font-size: 32.17272727272727px; } }
+@media (min-width: 448px) { .fluid-title { font-size: 32.43636363636364px; } }
+@media (min-width: 452px) { .fluid-title { font-size: 32.7px; } }
+@media (min-width: 456px) { .fluid-title { font-size: 32.96363636363636px; } }
+@media (min-width: 460px) { .fluid-title { font-size: 33.22727272727273px; } }
+@media (min-width: 464px) { .fluid-title { font-size: 33.49090909090909px; } }
+@media (min-width: 468px) { .fluid-title { font-size: 33.75454545454545px; } }
+@media (min-width: 472px) { .fluid-title { font-size: 34.018181818181816px; } }
+@media (min-width: 476px) { .fluid-title { font-size: 34.28181818181818px; } }
+@media (min-width: 480px) { .fluid-title { font-size: 34.54545454545455px; } }
+@media (min-width: 484px) { .fluid-title { font-size: 34.80909090909091px; } }
+@media (min-width: 488px) { .fluid-title { font-size: 35.07272727272728px; } }
+@media (min-width: 492px) { .fluid-title { font-size: 35.336363636363636px; } }
+@media (min-width: 496px) { .fluid-title { font-size: 35.6px; } }
+@media (min-width: 500px) { .fluid-title { font-size: 35.86363636363637px; } }
+@media (min-width: 504px) { .fluid-title { font-size: 36.127272727272725px; } }
+@media (min-width: 508px) { .fluid-title { font-size: 36.39090909090909px; } }
+@media (min-width: 512px) { .fluid-title { font-size: 36.654545454545456px; } }
+@media (min-width: 516px) { .fluid-title { font-size: 36.91818181818182px; } }
+@media (min-width: 520px) { .fluid-title { font-size: 37.18181818181818px; } }
+@media (min-width: 524px) { .fluid-title { font-size: 37.445454545454545px; } }
+@media (min-width: 528px) { .fluid-title { font-size: 37.70909090909091px; } }
+@media (min-width: 532px) { .fluid-title { font-size: 37.97272727272727px; } }
+@media (min-width: 536px) { .fluid-title { font-size: 38.236363636363635px; } }
+@media (min-width: 540px) { .fluid-title { font-size: 38.5px; } }
+@media (min-width: 544px) { .fluid-title { font-size: 38.763636363636365px; } }
+@media (min-width: 548px) { .fluid-title { font-size: 39.02727272727273px; } }
+@media (min-width: 552px) { .fluid-title { font-size: 39.29090909090909px; } }
+@media (min-width: 556px) { .fluid-title { font-size: 39.554545454545455px; } }
+@media (min-width: 560px) { .fluid-title { font-size: 39.81818181818181px; } }
+@media (min-width: 564px) { .fluid-title { font-size: 40.08181818181818px; } }
+@media (min-width: 568px) { .fluid-title { font-size: 40.345454545454544px; } }
+@media (min-width: 572px) { .fluid-title { font-size: 40.60909090909091px; } }
+@media (min-width: 576px) { .fluid-title { font-size: 40.872727272727275px; } }
+@media (min-width: 580px) { .fluid-title { font-size: 41.13636363636364px; } }
+@media (min-width: 584px) { .fluid-title { font-size: 41.4px; } }
+@media (min-width: 588px) { .fluid-title { font-size: 41.663636363636364px; } }
+@media (min-width: 592px) { .fluid-title { font-size: 41.92727272727272px; } }
+@media (min-width: 596px) { .fluid-title { font-size: 42.19090909090909px; } }
+@media (min-width: 600px) { .fluid-title { font-size: 42.45454545454545px; } }
+@media (min-width: 604px) { .fluid-title { font-size: 42.71818181818182px; } }
+@media (min-width: 608px) { .fluid-title { font-size: 42.981818181818184px; } }
+@media (min-width: 612px) { .fluid-title { font-size: 43.24545454545455px; } }
+@media (min-width: 616px) { .fluid-title { font-size: 43.50909090909091px; } }
+@media (min-width: 620px) { .fluid-title { font-size: 43.772727272727266px; } }
+@media (min-width: 624px) { .fluid-title { font-size: 44.03636363636363px; } }
+@media (min-width: 628px) { .fluid-title { font-size: 44.3px; } }
+@media (min-width: 632px) { .fluid-title { font-size: 44.56363636363636px; } }
+@media (min-width: 636px) { .fluid-title { font-size: 44.82727272727273px; } }
+@media (min-width: 640px) { .fluid-title { font-size: 45.09090909090909px; } }
+@media (min-width: 644px) { .fluid-title { font-size: 45.35454545454545px; } }
+@media (min-width: 648px) { .fluid-title { font-size: 45.61818181818182px; } }
+@media (min-width: 652px) { .fluid-title { font-size: 45.88181818181818px; } }
+@media (min-width: 656px) { .fluid-title { font-size: 46.14545454545455px; } }
+@media (min-width: 660px) { .fluid-title { font-size: 46.40909090909091px; } }
+@media (min-width: 664px) { .fluid-title { font-size: 46.67272727272727px; } }
+@media (min-width: 668px) { .fluid-title { font-size: 46.93636363636364px; } }
+@media (min-width: 672px) { .fluid-title { font-size: 47.2px; } }
+@media (min-width: 676px) { .fluid-title { font-size: 47.46363636363637px; } }
+@media (min-width: 680px) { .fluid-title { font-size: 47.727272727272734px; } }
+@media (min-width: 684px) { .fluid-title { font-size: 47.99090909090909px; } }
+@media (min-width: 688px) { .fluid-title { font-size: 48.25454545454545px; } }
+@media (min-width: 692px) { .fluid-title { font-size: 48.518181818181816px; } }
+@media (min-width: 696px) { .fluid-title { font-size: 48.78181818181818px; } }
+@media (min-width: 700px) { .fluid-title { font-size: 49.04545454545455px; } }
+@media (min-width: 704px) { .fluid-title { font-size: 49.30909090909091px; } }
+@media (min-width: 708px) { .fluid-title { font-size: 49.57272727272728px; } }
+@media (min-width: 712px) { .fluid-title { font-size: 49.836363636363636px; } }
+@media (min-width: 716px) { .fluid-title { font-size: 50.1px; } }
+@media (min-width: 720px) { .fluid-title { font-size: 50.36363636363636px; } }
+@media (min-width: 724px) { .fluid-title { font-size: 50.627272727272725px; } }
+@media (min-width: 728px) { .fluid-title { font-size: 50.89090909090909px; } }
+@media (min-width: 732px) { .fluid-title { font-size: 51.154545454545456px; } }
+@media (min-width: 736px) { .fluid-title { font-size: 51.41818181818182px; } }
+@media (min-width: 740px) { .fluid-title { font-size: 51.68181818181819px; } }
+@media (min-width: 744px) { .fluid-title { font-size: 51.945454545454545px; } }
+@media (min-width: 748px) { .fluid-title { font-size: 52.20909090909091px; } }
+@media (min-width: 752px) { .fluid-title { font-size: 52.47272727272727px; } }
+@media (min-width: 756px) { .fluid-title { font-size: 52.736363636363635px; } }
+@media (min-width: 760px) { .fluid-title { font-size: 53px; } }
+
+html, body
+{
+    font-family:    -apple-system, BlinkMacSystemFont, Roboto,
+                    "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    line-height: 1.5;
+}
