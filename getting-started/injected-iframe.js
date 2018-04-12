@@ -53,18 +53,18 @@ console.log("GONNA TRY TO FETCH " + loop.URL);
                     window.parent.postMessage("fetched", "*");
 
                     const remoteDocument = iframe.contentWindow.document;
-    
+
                     remoteDocument.open();
                     remoteDocument.write(text);
                     remoteDocument.close();
-    
+
                     loop.text = text;
                 })
                 .catch(() => loop.fetching = false);
         }, 200);
     });
     iframe.src = `${origin}/jefkasjdfkjasdklfjsldkf/iframe-empty`;
-    
+
     window.addEventListener("message", function ({ source, data })
     {
         if (source !== window.parent)
@@ -72,7 +72,7 @@ console.log("GONNA TRY TO FETCH " + loop.URL);
 
         loop.URL = origin + data.path;
         loop.needsFetching = true;
-        
+
         console.log("GOT MESSAGE " + loop.URL);
     });
 }
