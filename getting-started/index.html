@@ -200,9 +200,7 @@ a simple &quot;Hello World&quot; app — go ahead and change the code, it&#x27;s
         }
     </style><button class="btn btn-default" style="display:flex;width:50%;margin:4px auto;position:relative"><span class="icon icon-cw" style="flex:0 0 auto;transform:rotate(-90deg);margin-top:0px;visibility:hidden"></span><span style="flex:1 0 0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">http://localhost:3000</span><span class="icon icon-cw" style="flex:0 0 auto;transform:rotate(-90deg);margin-top:0px"></span><span class="browser-progress-bar css-tksuvv"></span></button></header><main class="window-content"><iframe class="browser-iframe" style="border:0;margin:0;padding:0;height:100%;width:100%;background:transparent" frameBorder="0" allowtransparancy="true" width="100%" height="100%"></iframe></main></div></div></figure></article></main><script>(function RUN() {
     window.onLoad = function (embed) {
-
-        embed.getShareableURL().then(function () {
-            const endpointURL = embed.endpointURL;
+        embed.getEndpointURL().then(function (endpointURL) {
             var article = embed.element;
 
             while (article.tagName !== "ARTICLE") article = article.parentNode;
