@@ -80,12 +80,10 @@ function RUN()
 {
     window.onLoad = function (embed)
     {
-
         embed
-            .getShareableURL()
-            .then(function ()
+            .getEndpointURL()
+            .then(function (endpointURL)
             {
-                const endpointURL = embed.endpointURL;
                 var article = embed.element;
 
                 while (article.tagName !== "ARTICLE")
